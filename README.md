@@ -5,8 +5,9 @@ Repositorio organizado para documentacao, scripts utilitarios e testes da API de
 ## Estrutura
 
 - `docs/`: guias e documentacao tecnica
+- `src/`: implementação canônica do cliente (instalável via `uv pip install -e .`)
 - `scripts/`: scripts de exploracao, validacao e suporte
-- `tests/python/`: testes Python
+- `tests/`: testes (unit em `tests/unit/`; integrações antigas em `tests/python/`)
 - `examples/`: exemplos de uso
 - `archive/`: log de organizacao, backups e rollback
 
