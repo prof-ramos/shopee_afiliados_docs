@@ -28,3 +28,7 @@ uv run --python .venv/bin/python python scripts/run_all_tests.py
 
 - Log: `archive/ORGANIZATION_LOG_2026-02-12.md`
 - Rollback: `archive/undo_organization_2026-02-12.sh`
+
+## Documentos tecnicos
+
+- Revisao de performance: `docs/REVISAO_PERFORMANCE.md`
