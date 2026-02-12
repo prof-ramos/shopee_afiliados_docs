@@ -7,7 +7,8 @@ Este diretorio contem exemplos praticos em Python para integracao com a API de A
 ```text
 examples/
 ├── python/
-│   └── shopee_affiliate_client.py
+│   ├── shopee_affiliate_client.py
+│   └── export_conversion_report_csv.py
 ├── test_api.py
 └── README.md
 ```
@@ -19,23 +20,35 @@ Crie um arquivo `.env` na raiz do projeto:
 ```bash
 SHOPEE_APP_ID=seu_app_id_aqui
 SHOPEE_APP_SECRET=seu_app_secret_aqui
+# Alias compat:
+SHOPEE_SECRET=seu_app_secret_aqui
 ```
 
 ## Configuracao do Ambiente
 
 ```bash
 # Criar ambiente virtual com uv
-uv venv
-source .venv/bin/activate
+uv venv .venv
 
-# Instalar dependencias
-uv pip install -r requirements.txt
+# Instalar dependencias (modo pacote)
+uv pip install -e ".[dev]"
 ```
 
 ## Teste Rapido
 
 ```bash
 uv run --python .venv/bin/python python examples/test_api.py
+```
+
+## Exportar conversionReport para CSV (stream, sem estourar RAM)
+
+```bash
+uv run --python .venv/bin/python python examples/python/export_conversion_report_csv.py \
+  --days 30 --out conversion_report.csv
+
+# debug (limita páginas)
+uv run --python .venv/bin/python python examples/python/export_conversion_report_csv.py \
+  --days 30 --out conversion_report.csv --max-pages 2
 ```
 
 ## Operacoes Disponiveis (Python)
