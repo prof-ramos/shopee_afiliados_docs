@@ -1,0 +1,5 @@
+# Dependências para exemplos Python da API Shopee Affiliate
+# Instalar com: uv pip install -r requirements.txt
+
+python-dotenv>=1.0.0
+requests>=2.32.0

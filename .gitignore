@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment and secrets
+.env
+.env.*
+
+# Tooling/local state
+.omc/
+.claude/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+
