@@ -1,0 +1,36 @@
+query {
+  productOfferV2(
+    keyword: {{keyword}}
+    shopId: {{shopId}}
+    itemId: {{itemId}}
+    productCatId: {{productCatId}}
+    listType: {{listType}}
+    matchId: {{matchId}}
+    sortType: {{sortType}}
+    page: {{page}}
+    limit: {{limit}}
+  ) {
+    nodes {
+      itemId
+      productName
+      commissionRate
+      commission
+      price
+      priceMin
+      priceMax
+      sales
+      ratingStar
+      imageUrl
+      shopId
+      shopName
+      shopType
+      productLink
+      offerLink
+    }
+    pageInfo {
+      page
+      limit
+      hasNextPage
+    }
+  }
+}

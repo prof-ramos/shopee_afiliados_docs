@@ -1,0 +1,10 @@
+mutation {
+  generateShortLink(
+    input: {
+      originUrl: {{originUrl}}
+      subIds: {{subIds}}
+    }
+  ) {
+    shortLink
+  }
+}

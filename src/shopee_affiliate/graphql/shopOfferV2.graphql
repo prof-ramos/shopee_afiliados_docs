@@ -1,0 +1,30 @@
+query {
+  shopOfferV2(
+    keyword: {{keyword}}
+    shopId: {{shopId}}
+    shopType: {{shopType}}
+    isKeySeller: {{isKeySeller}}
+    sortType: {{sortType}}
+    page: {{page}}
+    limit: {{limit}}
+  ) {
+    nodes {
+      commissionRate
+      imageUrl
+      offerLink
+      originalLink
+      shopId
+      shopName
+      ratingStar
+      shopType
+      remainingBudget
+      periodStartTime
+      periodEndTime
+    }
+    pageInfo {
+      page
+      limit
+      hasNextPage
+    }
+  }
+}

@@ -4,44 +4,45 @@ Motivação:
 - reduzir f-strings enormes espalhadas no client
 - facilitar manutenção quando o schema mudar
 
-As funções aqui retornam strings GraphQL prontas para envio.
+As queries/mutations base ficam em `src/shopee_affiliate/graphql/*.graphql`.
+As funções aqui carregam e injetam parâmetros de forma segura.
 """
 
 from __future__ import annotations
 
 import json
+from importlib import resources
 from typing import List, Optional
 
 
+def _load(name: str) -> str:
+    return resources.files("shopee_affiliate.graphql").joinpath(name).read_text(encoding="utf-8")
+
+
+def _render(template: str, mapping: dict[str, str]) -> str:
+    out = template
+    for key, value in mapping.items():
+        out = out.replace("{{" + key + "}}", value)
+    return out
+
+
+_SHOPEE_OFFER_V2 = _load("shopeeOfferV2.graphql")
+_SHOP_OFFER_V2 = _load("shopOfferV2.graphql")
+_PRODUCT_OFFER_V2 = _load("productOfferV2.graphql")
+_CONVERSION_REPORT = _load("conversionReport.graphql")
+_GENERATE_SHORT_LINK = _load("generateShortLink.graphql")
+
+
 def q_shopee_offer_v2(*, keyword: Optional[str], sort_type: int, page: int, limit: int) -> str:
-    return f"""
-    query {{
-      shopeeOfferV2(
-        keyword: {json.dumps(keyword) if keyword else 'null'}
-        sortType: {sort_type}
-        page: {page}
-        limit: {limit}
-      ) {{
-        nodes {{
-          commissionRate
-          imageUrl
-          offerLink
-          originalLink
-          offerName
-          offerType
-          categoryId
-          collectionId
-          periodStartTime
-          periodEndTime
-        }}
-        pageInfo {{
-          page
-          limit
-          hasNextPage
-        }}
-      }}
-    }}
-    """
+    return _render(
+        _SHOPEE_OFFER_V2,
+        {
+            "keyword": json.dumps(keyword) if keyword else "null",
+            "sortType": str(sort_type),
+            "page": str(page),
+            "limit": str(limit),
+        },
+    )
 
 
 def q_shop_offer_v2(
@@ -54,42 +55,18 @@ def q_shop_offer_v2(
     page: int,
     limit: int,
 ) -> str:
-    shop_type_str = str(shop_type) if shop_type else "[]"
-    keyword_str = json.dumps(keyword) if keyword else "null"
-    shop_id_str = shop_id if shop_id else "null"
-
-    return f"""
-    query {{
-      shopOfferV2(
-        keyword: {keyword_str}
-        shopId: {shop_id_str}
-        shopType: {shop_type_str}
-        isKeySeller: {str(is_key_seller).lower()}
-        sortType: {sort_type}
-        page: {page}
-        limit: {limit}
-      ) {{
-        nodes {{
-          commissionRate
-          imageUrl
-          offerLink
-          originalLink
-          shopId
-          shopName
-          ratingStar
-          shopType
-          remainingBudget
-          periodStartTime
-          periodEndTime
-        }}
-        pageInfo {{
-          page
-          limit
-          hasNextPage
-        }}
-      }}
-    }}
-    """
+    return _render(
+        _SHOP_OFFER_V2,
+        {
+            "keyword": json.dumps(keyword) if keyword else "null",
+            "shopId": str(shop_id) if shop_id else "null",
+            "shopType": str(shop_type) if shop_type else "[]",
+            "isKeySeller": str(is_key_seller).lower(),
+            "sortType": str(sort_type),
+            "page": str(page),
+            "limit": str(limit),
+        },
+    )
 
 
 def q_product_offer_v2(
@@ -104,50 +81,20 @@ def q_product_offer_v2(
     page: int,
     limit: int,
 ) -> str:
-    keyword_str = json.dumps(keyword) if keyword else "null"
-    shop_id_str = shop_id if shop_id else "null"
-    item_id_str = item_id if item_id else "null"
-    product_cat_id_str = product_cat_id if product_cat_id else "null"
-    match_id_str = match_id if match_id else "null"
-
-    return f"""
-    query {{
-      productOfferV2(
-        keyword: {keyword_str}
-        shopId: {shop_id_str}
-        itemId: {item_id_str}
-        productCatId: {product_cat_id_str}
-        listType: {list_type}
-        matchId: {match_id_str}
-        sortType: {sort_type}
-        page: {page}
-        limit: {limit}
-      ) {{
-        nodes {{
-          itemId
-          productName
-          commissionRate
-          commission
-          price
-          priceMin
-          priceMax
-          sales
-          ratingStar
-          imageUrl
-          shopId
-          shopName
-          shopType
-          productLink
-          offerLink
-        }}
-        pageInfo {{
-          page
-          limit
-          hasNextPage
-        }}
-      }}
-    }}
-    """
+    return _render(
+        _PRODUCT_OFFER_V2,
+        {
+            "keyword": json.dumps(keyword) if keyword else "null",
+            "shopId": str(shop_id) if shop_id else "null",
+            "itemId": str(item_id) if item_id else "null",
+            "productCatId": str(product_cat_id) if product_cat_id else "null",
+            "listType": str(list_type),
+            "matchId": str(match_id) if match_id else "null",
+            "sortType": str(sort_type),
+            "page": str(page),
+            "limit": str(limit),
+        },
+    )
 
 
 def q_conversion_report(
@@ -157,61 +104,25 @@ def q_conversion_report(
     scroll_id: Optional[str],
     limit: int,
 ) -> str:
-    scroll_id_param = f"scrollId: {json.dumps(scroll_id)}" if scroll_id is not None else ""
+    # Como o `scrollId` é um argumento opcional, injetamos uma linha inteira ou vazio.
+    scroll_id_line = f"scrollId: {json.dumps(scroll_id)}" if scroll_id is not None else ""
 
-    return f"""
-    query {{
-      conversionReport(
-        purchaseTimeStart: {purchase_time_start}
-        purchaseTimeEnd: {purchase_time_end}
-        {scroll_id_param}
-        limit: {limit}
-      ) {{
-        nodes {{
-          orders {{
-            orderId
-            shopType
-            orderStatus
-            items {{
-              itemId
-              itemName
-              itemTotalCommission
-              itemPrice
-              shopId
-              shopName
-              qty
-              globalCategoryLv1Name
-              globalCategoryLv2Name
-              globalCategoryLv3Name
-              imageUrl
-              itemSellerCommission
-              itemSellerCommissionRate
-            }}
-          }}
-        }}
-        pageInfo {{
-          limit
-          hasNextPage
-          scrollId
-        }}
-      }}
-    }}
-    """
+    return _render(
+        _CONVERSION_REPORT,
+        {
+            "purchaseTimeStart": str(purchase_time_start),
+            "purchaseTimeEnd": str(purchase_time_end),
+            "scrollIdLine": scroll_id_line,
+            "limit": str(limit),
+        },
+    )
 
 
 def m_generate_short_link(*, origin_url: str, sub_ids: Optional[List[str]]) -> str:
-    sub_ids_str = json.dumps(sub_ids) if sub_ids else "[]"
-    origin_url_escaped = json.dumps(origin_url)
-
-    return f"""
-    mutation {{
-      generateShortLink(
-        input: {{
-          originUrl: {origin_url_escaped}
-          subIds: {sub_ids_str}
-        }}
-      ) {{
-        shortLink
-      }}
-    }}
-    """
+    return _render(
+        _GENERATE_SHORT_LINK,
+        {
+            "originUrl": json.dumps(origin_url),
+            "subIds": json.dumps(sub_ids) if sub_ids else "[]",
+        },
+    )

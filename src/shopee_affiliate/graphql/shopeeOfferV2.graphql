@@ -1,0 +1,26 @@
+query {
+  shopeeOfferV2(
+    keyword: {{keyword}}
+    sortType: {{sortType}}
+    page: {{page}}
+    limit: {{limit}}
+  ) {
+    nodes {
+      commissionRate
+      imageUrl
+      offerLink
+      originalLink
+      offerName
+      offerType
+      categoryId
+      collectionId
+      periodStartTime
+      periodEndTime
+    }
+    pageInfo {
+      page
+      limit
+      hasNextPage
+    }
+  }
+}
