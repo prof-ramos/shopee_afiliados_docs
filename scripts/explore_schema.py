@@ -10,16 +10,21 @@ import sys
 import os
 import time
 
-# Adicionar o diretório examples/python ao path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'examples', 'python'))
+# Import do client (preferencial: módulo instalado; fallback: examples/python)
+try:
+    from shopee_affiliate_client import ShopeeAffiliateClient
+except ModuleNotFoundError:
+    ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    sys.path.insert(0, os.path.join(ROOT, "examples", "python"))
+    from shopee_affiliate_client import ShopeeAffiliateClient
 
-from shopee_affiliate_client import ShopeeAffiliateClient
 from dotenv import load_dotenv
 
 # Carregar credenciais
 load_dotenv()
 SHOPEE_APP_ID = os.getenv("SHOPEE_APP_ID")
-SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
+# aceita alias
+SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET") or os.getenv("SHOPEE_SECRET")
 
 
 def introspect_conversion_report():

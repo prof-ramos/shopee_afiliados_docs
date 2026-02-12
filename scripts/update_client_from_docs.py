@@ -56,7 +56,11 @@ def expected_fields() -> dict[str, list[str]]:
 
 def validate_python_client() -> int:
     print("=== Validando Cliente Python ===")
-    client_file = Path("examples/python/shopee_affiliate_client.py")
+    # Preferir o client empacotado em src/ (fonte canônica)
+    client_file = Path("src/shopee_affiliate_client.py")
+    if not client_file.exists():
+        # Fallback (se alguém apagar src/ por algum motivo)
+        client_file = Path("examples/python/shopee_affiliate_client.py")
 
     if not client_file.exists():
         print(f"❌ Arquivo nao encontrado: {client_file}")
