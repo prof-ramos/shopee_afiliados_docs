@@ -121,6 +121,7 @@ flowchart TD
 ## Referências (no repo)
 
 - Cliente: `src/shopee_affiliate/client.py`
+- Queries/Mutations: `src/shopee_affiliate/queries.py`
 - Transport: `src/shopee_affiliate/transport.py`
 - Auth: `src/shopee_affiliate/auth.py`
 - Validators: `src/shopee_affiliate/validators.py`
