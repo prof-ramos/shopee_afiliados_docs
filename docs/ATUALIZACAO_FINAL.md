@@ -275,7 +275,7 @@ from shopee_affiliate_client import ShopeeAffiliateClient
 # Criar cliente
 client = ShopeeAffiliateClient(
     app_id=os.getenv("SHOPEE_APP_ID"),
-    app_secret=os.getenv("SHOPEE_APP_SECRET")
+    app_secret=os.getenv("SHOPEE_APP_SECRET") or os.getenv("SHOPEE_SECRET")  # alias compat
 )
 
 # Buscar produtos
