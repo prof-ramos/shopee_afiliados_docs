@@ -19,8 +19,11 @@ import csv
 import os
 import time
 from dotenv import load_dotenv
+from pathlib import Path
 
-from shopee_affiliate_client import ShopeeAffiliateClient
+# Import do client canônico (pacote instalado).
+# (Evita conflito com o arquivo legado examples/python/shopee_affiliate_client.py)
+from shopee_affiliate import ShopeeAffiliateClient
 
 
 def parse_args() -> argparse.Namespace:
@@ -35,7 +38,8 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
 
-    load_dotenv()
+    # Evita edge-case do find_dotenv() em execuções via stdin/uv.
+    load_dotenv(dotenv_path=Path(__file__).resolve().parents[2] / ".env")
     app_id = os.getenv("SHOPEE_APP_ID")
     secret = os.getenv("SHOPEE_APP_SECRET") or os.getenv("SHOPEE_SECRET")
     if not app_id or not secret:
