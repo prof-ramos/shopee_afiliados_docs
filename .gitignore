@@ -2,10 +2,21 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
 # Virtual environments
 .venv/
 venv/
+
+# Build/artifacts
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
 
 # Environment and secrets
 .env
@@ -19,4 +30,4 @@ venv/
 .DS_Store
 .idea/
 .vscode/
-
+*.log
