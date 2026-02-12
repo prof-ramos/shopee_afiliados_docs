@@ -306,7 +306,7 @@ for node in report["data"]["conversionReport"]["nodes"]:
 
 ## 🎯 Próximos Passos
 
-1. **Explorar endpoint `validatedReport`** - Pode ser mais robusto que `conversionReport`
+1. *(Fora do escopo 100% testado deste repo)* Explorar endpoint `validatedReport` no Playground — pode ser mais robusto que `conversionReport`
 2. **Testar com dados reais** - Verificar conversões em ambiente de produção
 3. **Implementar paginação robusta** com handler de expiração do scrollId
 

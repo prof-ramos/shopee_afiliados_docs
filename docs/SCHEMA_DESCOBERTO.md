@@ -14,7 +14,7 @@
 | `productOffer` | - | Ofertas de produtos (legado?) |
 | `productOfferV2` | - | Ofertas de produtos V2 |
 | `conversionReport` | - | Relatório de conversões |
-| `validatedReport` | - | Relatório validado (NOVO) |
+| `validatedReport` | - | Relatório validado (fora do escopo 100% testado deste repo) |
 | `checkAffiliateId` | - | Verificar ID de afiliado |
 | `partnerOrderReport` | - | Relatório de pedidos de parceiro (NOVO) |
 | `listItemFeeds` | - | Listar feeds de itens (NOVO) |
@@ -121,7 +121,7 @@ query {
 - ❌ `page` parameter → ❌ Não suportado
 
 ### Campos não documentados (novos):
-- ✅ `validatedReport` endpoint
+- `validatedReport` endpoint (mencionado na doc/playground, mas não implementado/testado aqui)
 - ✅ `partnerOrderReport` endpoint
 - ✅ `listItemFeeds` endpoint
 - ✅ `getItemFeedData` endpoint

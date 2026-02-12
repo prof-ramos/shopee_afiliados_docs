@@ -74,7 +74,7 @@ A API tem **12 endpoints** no total:
 | `shopeeOfferV2` | Ofertas da Shopee V2 |
 | `productOfferV2` | Ofertas de produtos V2 |
 | `conversionReport` | Relatório de conversões |
-| **`validatedReport`** | Relatório validado ⭐ NOVO |
+| **`validatedReport`** | Relatório validado (fora do escopo deste repo) |
 | **`partnerOrderReport`** | Relatório de pedidos parceiro ⭐ NOVO |
 | **`listItemFeeds`** | Listar feeds de itens ⭐ NOVO |
 | **`getItemFeedData`** | Obter dados de feed ⭐ NOVO |
@@ -119,7 +119,7 @@ Todos os endpoints foram testados com sucesso:
 ## 📋 Próximos Passos Sugeridos
 
 1. Explorar novos endpoints:
-   - `validatedReport` - Possivelmente mais robusto que `conversionReport`
+   - `validatedReport` - Possivelmente mais robusto que `conversionReport` (não implementado/testado neste repo)
    - `partnerOrderReport` - Pode ter dados adicionais
    - `listItemFeeds` / `getItemFeedData` - Funcionalidade de feeds
 
@@ -140,7 +140,7 @@ Todos os endpoints foram testados com sucesso:
        return all_nodes
    ```
 
-3. Criar exemplo de uso do `validatedReport`
+3. (Opcional futuro) Criar exemplo de uso do `validatedReport` (fora do escopo 100% testado)
 
 ## 🎯 Conclusão
 

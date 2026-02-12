@@ -66,7 +66,7 @@ A API possui **12 endpoints** no total:
 | `productOfferV2` | Ofertas de produtos | ✅ Testado |
 | `conversionReport` | Relatório de conversões | ✅ Testado (schema corrigido) |
 | `generateShortLink` | Gerar link curto | ✅ Testado |
-| **`validatedReport`** | Relatório validado | ⭐ NOVO descoberto |
+| **`conversionReport`** | Relatório de conversão | ✅ Testado e funcional |
 | **`partnerOrderReport`** | Pedidos de parceiro | ⭐ NOVO descoberto |
 | **`listItemFeeds`** | Listar feeds | ⭐ NOVO descoberto |
 | **`getItemFeedData`** | Dados de feed | ⭐ NOVO descoberto |
@@ -244,7 +244,7 @@ if purchase_time_start < three_months_ago:
 ## 🔄 Próximos Passos Sugeridos
 
 1. **Explorar novos endpoints**
-   - `validatedReport` - Pode ser mais robusto que `conversionReport`
+   - (não implementado aqui) `validatedReport` — pode existir no Playground, mas não entra no escopo de endpoints 100% testados deste repo
    - `partnerOrderReport` - Dados adicionais de pedidos
    - `listItemFeeds` / `getItemFeedData` - Funcionalidade de feeds
 

@@ -17,7 +17,8 @@
 - **Links curtos** (short links) - `generateShortLink`
 - **Relatórios** (reports)
   - `conversionReport` - Relatório de conversão
-  - `validatedReport` - Relatório validado
+
+> Status de qualidade: este repo documenta como **100% testados e funcionais** os endpoints acima (os que o cliente implementa e a suíte `scripts/run_all_tests.py` executa). Outros endpoints podem existir no Playground, mas não são garantidos aqui.
 
 ### Sobre GraphQL
 

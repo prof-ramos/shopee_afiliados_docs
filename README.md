@@ -51,4 +51,6 @@ uv run --python .venv/bin/python python scripts/run_all_tests.py
 
 ## Documentos tecnicos
 
+- Endpoints 100% testados: `docs/ENDPOINTS_TESTADOS.md`
+- Arquitetura: `docs/ARCHITECTURE.md`
 - Revisao de performance: `docs/REVISAO_PERFORMANCE.md`
