@@ -249,6 +249,8 @@ Ferramenta útil para fazer requisições e testar queries:
 Recomendamos o uso de um arquivo `.env` para gerenciar suas credenciais de forma segura. O projeto
 carrega automaticamente as variáveis `SHOPEE_APP_ID` e `SHOPEE_APP_SECRET` deste arquivo (também aceita `SHOPEE_SECRET` como alias).
 
+> Dica de performance: para relatórios grandes (`conversionReport`), prefira processar por página (stream) ao invés de acumular tudo em memória. Veja `iter_conversion_report_pages()`/`iter_conversion_report_orders()` no cliente.
+
 ---
 
 ## Queries Disponíveis

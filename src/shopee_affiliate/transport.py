@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import time
+import random
 from dataclasses import dataclass
 from typing import Any, Dict, Optional
 
@@ -50,13 +51,15 @@ class ShopeeAffiliateTransport:
             payload["variables"] = variables
 
         payload_str = json.dumps(payload, separators=(",", ":"))
-        headers = {
-            "Authorization": build_authorization_header(self.app_id, self.app_secret, payload_str),
-            "Content-Type": "application/json",
-        }
 
         last_exc: Exception | None = None
         for attempt in range(1, self.retry.max_attempts + 1):
+            # Recalcula Authorization a cada tentativa (timestamp novo)
+            headers = {
+                "Authorization": build_authorization_header(self.app_id, self.app_secret, payload_str),
+                "Content-Type": "application/json",
+            }
+
             try:
                 resp = self.session.post(
                     self.base_url,
@@ -65,11 +68,26 @@ class ShopeeAffiliateTransport:
                     timeout=self.timeout_s,
                 )
 
-                if resp.status_code in self.retry.retry_statuses:
-                    # rate limit / transient errors
-                    if attempt < self.retry.max_attempts:
-                        time.sleep(self.retry.backoff_base_s * (2 ** (attempt - 1)))
-                        continue
+                # Rate limit / transient errors
+                if resp.status_code in self.retry.retry_statuses and attempt < self.retry.max_attempts:
+                    sleep_s: float | None = None
+
+                    # Respeita Retry-After quando presente
+                    ra = resp.headers.get("Retry-After")
+                    if ra:
+                        try:
+                            sleep_s = float(ra)
+                        except ValueError:
+                            sleep_s = None
+
+                    if sleep_s is None:
+                        # backoff exponencial + jitter leve
+                        base = self.retry.backoff_base_s * (2 ** (attempt - 1))
+                        jitter = (0.15 * base) * (0.5 - random.random()) * 2
+                        sleep_s = max(0.0, base + jitter)
+
+                    time.sleep(sleep_s)
+                    continue
 
                 resp.raise_for_status()
                 return resp.json()
@@ -77,7 +95,9 @@ class ShopeeAffiliateTransport:
             except requests.RequestException as e:
                 last_exc = e
                 if attempt < self.retry.max_attempts:
-                    time.sleep(self.retry.backoff_base_s * (2 ** (attempt - 1)))
+                    base = self.retry.backoff_base_s * (2 ** (attempt - 1))
+                    jitter = (0.15 * base) * (0.5 - random.random()) * 2
+                    time.sleep(max(0.0, base + jitter))
                     continue
                 raise
 

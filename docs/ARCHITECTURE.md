@@ -13,7 +13,7 @@ Este repositório contém um **cliente Python** (instalável) para a API GraphQL
 - **Validators** (`src/shopee_affiliate/validators.py`)
   - Regras práticas e validações de parâmetros (ex.: `subIds`).
 - **Transport** (`src/shopee_affiliate/transport.py`)
-  - HTTP POST, timeout, retry/backoff, serialização canônica do payload.
+  - HTTP POST, timeout, retry/backoff (com jitter + respeitando `Retry-After`), serialização canônica do payload.
 - **Auth** (`src/shopee_affiliate/auth.py`)
   - Geração de assinatura e header `Authorization`.
 
