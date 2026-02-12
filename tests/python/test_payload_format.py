@@ -7,8 +7,14 @@ import hashlib
 import json
 import time
 
-app_id = '18360190851'
-app_secret = 'EX4IKYDSUTTBJQRCCL63KCHU66HCOJ3C'
+# Para este teste de assinatura, qualquer valor serve.
+# Se você tiver .env configurado, ele usa suas credenciais; caso contrário usa dummy.
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+app_id = os.getenv("SHOPEE_APP_ID", "DUMMY_APP_ID")
+app_secret = os.getenv("SHOPEE_APP_SECRET", "DUMMY_APP_SECRET")
 timestamp = int(time.time())
 
 # Payload como Python gera

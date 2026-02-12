@@ -11,15 +11,21 @@ import os
 import time
 from dotenv import load_dotenv
 
-# Adicionar o diretório examples/python ao path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'examples', 'python'))
-
-from shopee_affiliate_client import ShopeeAffiliateClient
+# Import do client:
+# - preferencial: via módulo instalado (src/shopee_affiliate_client.py)
+# - fallback: via examples/python (execução direta sem instalar)
+try:
+    from shopee_affiliate_client import ShopeeAffiliateClient
+except ModuleNotFoundError:
+    ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    sys.path.insert(0, os.path.join(ROOT, "examples", "python"))
+    from shopee_affiliate_client import ShopeeAffiliateClient
 
 # Carregar credenciais
 load_dotenv()
 SHOPEE_APP_ID = os.getenv("SHOPEE_APP_ID")
-SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
+# Aceita SHOPEE_APP_SECRET (padrão) e SHOPEE_SECRET (alias comum)
+SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET") or os.getenv("SHOPEE_SECRET")
 
 
 class TestRunner:
@@ -192,9 +198,10 @@ class TestRunner:
         self.print_header("TESTE 6: generateShortLink - Gerar Link Curto")
 
         try:
+            # subIds: a API rejeita alguns formatos (ex.: underscore). Use somente letras/números.
             result = self.client.generate_short_link(
                 origin_url="https://shopee.com.br/product/123456",
-                sub_ids=["promo1", "canal_email"]  # 2 sub-IDs
+                sub_ids=["campanhaA", "bannerB"]  # 2 sub-IDs (exemplo oficial)
             )
 
             if "errors" in result:
@@ -279,23 +286,27 @@ class TestRunner:
             data = result.get("data", {}).get("conversionReport", {})
             nodes = data.get("nodes", [])
 
-            # Verificar estrutura correta
-            has_orders = False
-            total_orders = 0
-            total_items = 0
+            # Verificar estrutura correta (mesmo sem conversões)
+            # A API pode retornar lista vazia dependendo do período/conta.
+            required_top_keys = {"nodes", "pageInfo"}
+            has_top_keys = required_top_keys.issubset(set(data.keys()))
 
-            for node in nodes:
-                orders = node.get("orders", [])
-                if orders:
-                    has_orders = True
-                    total_orders += len(orders)
-                    for order in orders:
-                        items = order.get("items", [])
-                        total_items += len(items)
+            # Se tiver nodes, valida presença esperada de campos básicos
+            sample_checks = []
+            if nodes:
+                sample = nodes[0]
+                # Mantém leve: só garante que é dict e tem pelo menos 1 campo conhecido
+                sample_checks.append(isinstance(sample, dict))
+                sample_checks.append(any(k in sample for k in ["orders", "buyerType", "purchaseTime", "purchaseStatus"]))
 
-            self.print_result("conversionReport estrutura", has_orders,
-                                f"Orders: {total_orders}, Items: {total_items}",
-                                {"hasOrders": has_orders, "totalOrders": total_orders, "totalItems": total_items})
+            ok = has_top_keys and all(sample_checks) if nodes else has_top_keys
+
+            self.print_result(
+                "conversionReport estrutura",
+                ok,
+                f"nodes={len(nodes)} (estrutura ok, não exige pedidos)",
+                {"hasTopKeys": has_top_keys, "nodes": len(nodes)}
+            )
 
         except Exception as e:
             self.print_result("conversionReport estrutura", False, f"Exceção: {str(e)}")

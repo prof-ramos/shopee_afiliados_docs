@@ -12,17 +12,36 @@ Repositorio organizado para documentacao, scripts utilitarios e testes da API de
 
 ## Ambiente
 
-- Python com `uv` e virtualenv em `.venv/`
+- Python >= 3.10
+- Recomendado: `uv` + venv em `.venv/`
 
-## Comandos rapidos
+### Setup (uv)
+
+```bash
+# 1) criar venv
+uv venv .venv
+
+# 2) instalar dependências (modo pacote, via pyproject)
+uv pip install -e ".[dev]"
+
+# 3) credenciais
+cp .env.example .env
+# edite .env e preencha SHOPEE_APP_ID / SHOPEE_APP_SECRET
+```
+
+### Comandos rápidos
 
 ```bash
 # Verificar Python no venv via uv
 uv run --python .venv/bin/python python -V
 
-# Rodar suite principal (ajuste conforme necessidade)
+# Rodar suite principal
 uv run --python .venv/bin/python python scripts/run_all_tests.py
 ```
+
+> Obs.: o `scripts/run_all_tests.py` tenta importar o client via pacote (src/) e, se não estiver instalado, cai no fallback `examples/python`.
+>
+> Nota sobre `subIds` (generateShortLink): apesar de a doc permitir strings livres, na prática a API pode rejeitar certos formatos (ex.: underscore). Este repo assume `subIds` apenas com letras/números (ex.: `campanhaA`, `bannerB`).
 
 ## Organizacao aplicada
 

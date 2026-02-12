@@ -21,6 +21,7 @@ pip-wheel-metadata/
 # Environment and secrets
 .env
 .env.*
+!.env.example
 
 # Tooling/local state
 .omc/

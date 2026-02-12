@@ -6,15 +6,21 @@ Teste do endpoint shopeeOfferV2 da API Shopee Affiliate.
 import json
 import sys
 import os
+from dotenv import load_dotenv
 
-# Adicionar o diretório examples/python ao path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'examples', 'python'))
+# Adicionar o diretório examples/python ao path (robusto, independente do CWD)
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, os.path.join(ROOT, "examples", "python"))
 
 from shopee_affiliate_client import ShopeeAffiliateClient
 
-# Credenciais
-SHOPEE_APP_ID = "18360190851"
-SHOPEE_APP_SECRET = "EX4IKYDSUTTBJQRCCL63KCHU66HCOJ3C"
+# Credenciais (via .env)
+load_dotenv()
+SHOPEE_APP_ID = os.getenv("SHOPEE_APP_ID")
+SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
+
+if not SHOPEE_APP_ID or not SHOPEE_APP_SECRET:
+    raise SystemExit("Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)")
 
 def test_shopee_offer_v2():
     """Testa o endpoint shopeeOfferV2 com diferentes parâmetros."""

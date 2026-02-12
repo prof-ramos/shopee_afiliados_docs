@@ -8,9 +8,16 @@ import json
 sys.path.insert(0, 'examples/python')
 from shopee_affiliate_client import ShopeeAffiliateClient
 
-# Configuração
-APP_ID = '18360190851'
-APP_SECRET = 'EX4IKYDSUTTBJQRCCL63KCHU66HCOJ3C'
+# Configuração (via .env)
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+APP_ID = os.getenv("SHOPEE_APP_ID")
+APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
+
+if not APP_ID or not APP_SECRET:
+    raise SystemExit("Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)")
 
 def main():
     client = ShopeeAffiliateClient(APP_ID, APP_SECRET)
