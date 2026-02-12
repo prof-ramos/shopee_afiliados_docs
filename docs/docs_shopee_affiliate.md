@@ -247,7 +247,7 @@ Ferramenta útil para fazer requisições e testar queries:
 ### Configuração
 
 Recomendamos o uso de um arquivo `.env` para gerenciar suas credenciais de forma segura. O projeto
-carrega automaticamente as variáveis `SHOPEE_APP_ID` e `SHOPEE_APP_SECRET` deste arquivo.
+carrega automaticamente as variáveis `SHOPEE_APP_ID` e `SHOPEE_APP_SECRET` deste arquivo (também aceita `SHOPEE_SECRET` como alias).
 
 ---
 
@@ -499,7 +499,7 @@ Esta mutation é usada para gerar links curtos de rastreamento para produtos Sho
 | Campo       | Tipo       | Descrição                     | Obrigatório | Exemplo                          |
 | ----------- | ---------- | ----------------------------- | ----------- | -------------------------------- |
 | `originUrl` | `String`   | URL original do produto       | Sim         | `https://shopee.com.br/...`      |
-| `subIds`    | `[String]` | Sub IDs para tracking (até 5) | Não         | `["s1", "s2", "s3", "s4", "s5"]` |
+| `subIds`    | `[String]` | Sub IDs para tracking (até 5). **Dica prática**: use somente alfanumérico (sem underscore). | Não         | `["campanhaA", "bannerB"]` |
 
 #### Estrutura de Retorno
 
