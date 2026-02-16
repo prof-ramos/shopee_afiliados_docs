@@ -1,0 +1,5120 @@
+{
+  "data": {
+    "__schema": {
+      "queryType": {
+        "name": "Query",
+        "fields": [
+          {
+            "name": "brandOffer",
+            "description": null,
+            "args": [
+              {
+                "name": "name",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "commissionRateLower",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "commissionRateUpper",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "periodStartTime",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "periodEndTime",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "offerStatus",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": null,
+                  "kind": "LIST",
+                  "ofType": {
+                    "name": null,
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "name": "OfferStatus",
+                      "kind": "ENUM"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "orderBy",
+                "description": null,
+                "defaultValue": "NEWEST",
+                "type": {
+                  "name": "BrandOfferOrder",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "page",
+                "description": null,
+                "defaultValue": "1",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "limit",
+                "description": null,
+                "defaultValue": "20",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          },
+          {
+            "name": "shopOfferV2",
+            "description": null,
+            "args": [
+              {
+                "name": "keyword",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "shopType",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": null,
+                  "kind": "LIST",
+                  "ofType": {
+                    "name": null,
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "sortType",
+                "description": null,
+                "defaultValue": "1",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "sellerCommCoveRatio",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "page",
+                "description": null,
+                "defaultValue": "1",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "limit",
+                "description": null,
+                "defaultValue": "20",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "shopId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "isKeySeller",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Boolean",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          },
+          {
+            "name": "shopeeOffer",
+            "description": null,
+            "args": [
+              {
+                "name": "name",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "type",
+                "description": null,
+                "defaultValue": "ALL",
+                "type": {
+                  "name": "ShopeeOfferType",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "offerStatus",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": null,
+                  "kind": "LIST",
+                  "ofType": {
+                    "name": null,
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "name": "OfferStatus",
+                      "kind": "ENUM"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "commissionRateLower",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "commissionRateUpper",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "periodStartTime",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "periodEndTime",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "orderBy",
+                "description": null,
+                "defaultValue": "NEWEST",
+                "type": {
+                  "name": "ShopeeOfferOrder",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "page",
+                "description": null,
+                "defaultValue": "1",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "limit",
+                "description": null,
+                "defaultValue": "20",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          },
+          {
+            "name": "shopeeOfferV2",
+            "description": null,
+            "args": [
+              {
+                "name": "keyword",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "sortType",
+                "description": null,
+                "defaultValue": "1",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "page",
+                "description": null,
+                "defaultValue": "1",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "limit",
+                "description": null,
+                "defaultValue": "20",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          },
+          {
+            "name": "productOffer",
+            "description": null,
+            "args": [
+              {
+                "name": "categoryLv1Id",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "categoryLv2Id",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "categoryLv3Id",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "productName",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "productId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "offerStatus",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": null,
+                  "kind": "LIST",
+                  "ofType": {
+                    "name": null,
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "name": "OfferStatus",
+                      "kind": "ENUM"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "shopName",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "priceLower",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "priceUpper",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "commissionRateLower",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "commissionRateUpper",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "orderBy",
+                "description": null,
+                "defaultValue": "HIGEST_COMMISSION_RATE",
+                "type": {
+                  "name": "ProductOfferOrder",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "page",
+                "description": null,
+                "defaultValue": "1",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "limit",
+                "description": null,
+                "defaultValue": "20",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          },
+          {
+            "name": "productOfferV2",
+            "description": null,
+            "args": [
+              {
+                "name": "listType",
+                "description": null,
+                "defaultValue": "0",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "matchId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "keyword",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "sortType",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "page",
+                "description": null,
+                "defaultValue": "1",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "limit",
+                "description": null,
+                "defaultValue": "20",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "itemId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "shopId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "productCatId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "isAMSOffer",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Boolean",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "isKeySeller",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Boolean",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          },
+          {
+            "name": "conversionReport",
+            "description": "checkoutId deprecated\nconversionStatus deprecated",
+            "args": [
+              {
+                "name": "purchaseTimeStart",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "purchaseTimeEnd",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "completeTimeStart",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "completeTimeEnd",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "shopName",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "shopId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "shopType",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": null,
+                  "kind": "LIST",
+                  "ofType": {
+                    "name": null,
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "name": "ShopType",
+                      "kind": "ENUM"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "conversionId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "conversionStatus",
+                "description": null,
+                "defaultValue": "ALL",
+                "type": {
+                  "name": "ConversionStatus",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "checkoutId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "orderId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "productName",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "productId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "categoryLv1Id",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "categoryLv2Id",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "categoryLv3Id",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "categoryType",
+                "description": null,
+                "defaultValue": "ALL",
+                "type": {
+                  "name": "CategoryType",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "orderStatus",
+                "description": null,
+                "defaultValue": "ALL",
+                "type": {
+                  "name": "DisplayOrderStatus",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "buyerType",
+                "description": null,
+                "defaultValue": "ALL",
+                "type": {
+                  "name": "BuyerType",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "productType",
+                "description": null,
+                "defaultValue": "ALL",
+                "type": {
+                  "name": "ProductType",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "fraudStatus",
+                "description": null,
+                "defaultValue": "ALL",
+                "type": {
+                  "name": "FraudStatus",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "device",
+                "description": null,
+                "defaultValue": "ALL",
+                "type": {
+                  "name": "DeviceType",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "attributionType",
+                "description": null,
+                "defaultValue": "All",
+                "type": {
+                  "name": "AttributionType",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "campaignPartnerName",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "campaignType",
+                "description": null,
+                "defaultValue": "All",
+                "type": {
+                  "name": "CampaignType",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "limit",
+                "description": null,
+                "defaultValue": "20",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "scrollId",
+                "description": null,
+                "defaultValue": "\"\"",
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          },
+          {
+            "name": "validatedReport",
+            "description": null,
+            "args": [
+              {
+                "name": "validationId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": null,
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "name": "Int64",
+                    "kind": "SCALAR",
+                    "ofType": null
+                  }
+                }
+              },
+              {
+                "name": "limit",
+                "description": null,
+                "defaultValue": "20",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "scrollId",
+                "description": null,
+                "defaultValue": "\"\"",
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          },
+          {
+            "name": "checkAffiliateId",
+            "description": null,
+            "args": [
+              {
+                "name": "affiliateId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": null,
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "name": "Int64",
+                    "kind": "SCALAR",
+                    "ofType": null
+                  }
+                }
+              },
+              {
+                "name": "source",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": null,
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "name": "String",
+                    "kind": "SCALAR",
+                    "ofType": null
+                  }
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          },
+          {
+            "name": "partnerOrderReport",
+            "description": null,
+            "args": [
+              {
+                "name": "purchaseTimeStart",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "purchaseTimeEnd",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "completeTimeStart",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "completeTimeEnd",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "Int64",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "limit",
+                "description": null,
+                "defaultValue": "500",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "searchNextToken",
+                "description": null,
+                "defaultValue": "\"\"",
+                "type": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          },
+          {
+            "name": "listItemFeeds",
+            "description": null,
+            "args": [
+              {
+                "name": "feedMode",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": "FeedMode",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          },
+          {
+            "name": "getItemFeedData",
+            "description": null,
+            "args": [
+              {
+                "name": "datafeedId",
+                "description": null,
+                "defaultValue": null,
+                "type": {
+                  "name": null,
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "name": "String",
+                    "kind": "SCALAR",
+                    "ofType": null
+                  }
+                }
+              },
+              {
+                "name": "offset",
+                "description": null,
+                "defaultValue": "0",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              },
+              {
+                "name": "limit",
+                "description": null,
+                "defaultValue": "500",
+                "type": {
+                  "name": "Int",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "description": null,
+              "fields": null
+            }
+          }
+        ]
+      },
+      "mutationType": {
+        "name": "Mutation",
+        "fields": [
+          {
+            "name": "generateShortLink",
+            "description": null,
+            "args": [
+              {
+                "name": "input",
+                "description": null,
+                "type": {
+                  "name": null,
+                  "kind": "NON_NULL"
+                }
+              }
+            ],
+            "type": {
+              "name": "ShortLinkResult",
+              "kind": "OBJECT",
+              "fields": [
+                {
+                  "name": "shortLink",
+                  "type": {
+                    "name": null
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "generateBatchShortLink",
+            "description": null,
+            "args": [
+              {
+                "name": "input",
+                "description": null,
+                "type": {
+                  "name": null,
+                  "kind": "NON_NULL"
+                }
+              }
+            ],
+            "type": {
+              "name": "BatchShortLinkResult",
+              "kind": "OBJECT",
+              "fields": [
+                {
+                  "name": "links",
+                  "type": {
+                    "name": null
+                  }
+                },
+                {
+                  "name": "total",
+                  "type": {
+                    "name": null
+                  }
+                },
+                {
+                  "name": "successCount",
+                  "type": {
+                    "name": null
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "syncAffiliateStatus",
+            "description": null,
+            "args": [
+              {
+                "name": "affiliateId",
+                "description": null,
+                "type": {
+                  "name": null,
+                  "kind": "NON_NULL"
+                }
+              },
+              {
+                "name": "action",
+                "description": null,
+                "type": {
+                  "name": null,
+                  "kind": "NON_NULL"
+                }
+              },
+              {
+                "name": "source",
+                "description": null,
+                "type": {
+                  "name": null,
+                  "kind": "NON_NULL"
+                }
+              }
+            ],
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "fields": null
+            }
+          }
+        ]
+      },
+      "types": [
+        {
+          "name": "AttributionType",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ORDERED_IN_SAME_SHOP",
+              "description": null
+            },
+            {
+              "name": "ORDERED_IN_DIFFERENT_SHOP",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "Banner",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "fileName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "imageHeight",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "imageWidth",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "imageSize",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "BannerInfo",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "count",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "banners",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "BatchShortLinkInput",
+          "kind": "INPUT_OBJECT",
+          "description": null,
+          "fields": null,
+          "enumValues": null
+        },
+        {
+          "name": "BatchShortLinkItem",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "originUrl",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shortLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "success",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "errorMessage",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "BatchShortLinkResult",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "links",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "total",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "successCount",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "Boolean",
+          "kind": "SCALAR",
+          "description": "The `Boolean` scalar type represents `true` or `false`.",
+          "fields": null,
+          "enumValues": null
+        },
+        {
+          "name": "BrandOffer",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "commissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "appExistRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "appNewRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "webExistRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "webNewRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerDetails",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerStatus",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "periodEndTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "periodStartTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerUpdates",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            },
+            {
+              "name": "bannerInfo",
+              "description": null,
+              "type": {
+                "name": "BannerInfo",
+                "kind": "OBJECT"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "BrandOfferConnection",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "nodes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "pageInfo",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "BrandOfferOrder",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "NEWEST",
+              "description": null
+            },
+            {
+              "name": "HIGEST_COMMISSION_RATE",
+              "description": null
+            },
+            {
+              "name": "ENDING_SOON",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "BuyerType",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ALL",
+              "description": null
+            },
+            {
+              "name": "NEW",
+              "description": null
+            },
+            {
+              "name": "EXISTING",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "CampaignType",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ALL",
+              "description": null
+            },
+            {
+              "name": "SELLER_OPEN_CAMPAIGN",
+              "description": null
+            },
+            {
+              "name": "SELLER_TARGET_CAMPAIGN",
+              "description": null
+            },
+            {
+              "name": "MCN_CAMPAIGN",
+              "description": null
+            },
+            {
+              "name": "NON_SELLER_CAMPAIGN",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "CategoryType",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ALL",
+              "description": null
+            },
+            {
+              "name": "MP",
+              "description": null
+            },
+            {
+              "name": "DP",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "ConversionReport",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "clickTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "purchaseTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "checkoutId",
+              "description": "checkoutId deprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "conversionId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "conversionStatus",
+              "description": "conversionStatus deprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "grossCommission",
+              "description": "grossCommission deprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "cappedCommission",
+              "description": "cappedCommission deprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "totalBrandCommission",
+              "description": "totalBrandCommission deprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "estimatedTotalCommission",
+              "description": "estimatedTotalCommission deprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopeeCommissionCapped",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "sellerCommission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "totalCommission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "netCommission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "mcnManagementFeeRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "mcnManagementFee",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "mcnContractId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "linkedMcnName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "buyerType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "utmContent",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "device",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "productType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "referrer",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "orders",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ConversionReportConnection",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "nodes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "pageInfo",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ConversionReportOrder",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "orderId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopType",
+              "description": null,
+              "type": {
+                "name": "ShopType",
+                "kind": "ENUM"
+              }
+            },
+            {
+              "name": "orderStatus",
+              "description": null,
+              "type": {
+                "name": "DisplayOrderStatus",
+                "kind": "ENUM"
+              }
+            },
+            {
+              "name": "items",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ConversionReportOrderItem",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "shopId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "completeTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "promotionId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "modelId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemPrice",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "displayItemStatus",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "actualAmount",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "refundAmount",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "qty",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemCommission",
+              "description": "itemCommission deprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "grossBrandCommission",
+              "description": "grossBrandCommission deprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemTotalCommission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemSellerCommission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemSellerCommissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemShopeeCommissionCapped",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemShopeeCommissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemNotes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "categoryLv1Name",
+              "description": "categoryLv1Name deprecated",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "categoryLv2Name",
+              "description": "categoryLv2Name deprecated",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "categoryLv3Name",
+              "description": "categoryLv3Name deprecated",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "globalCategoryLv1Name",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "globalCategoryLv2Name",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "globalCategoryLv3Name",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "fraudStatus",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "fraudReason",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "attributionType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "channelType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "campaignPartnerName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "campaignType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ConversionStatus",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ALL",
+              "description": null
+            },
+            {
+              "name": "PENDING",
+              "description": null
+            },
+            {
+              "name": "COMPLETED",
+              "description": null
+            },
+            {
+              "name": "CANCELLED",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "DeltaDataUpdateType",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": null
+            },
+            {
+              "name": "NEW",
+              "description": null
+            },
+            {
+              "name": "UPDATE",
+              "description": null
+            },
+            {
+              "name": "DELETE",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "Detail",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "catName",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "commissionRate",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "appExistRate",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "appNewRate",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "webExistRate",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "webNewRate",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "DeviceType",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ALL",
+              "description": null
+            },
+            {
+              "name": "APP",
+              "description": null
+            },
+            {
+              "name": "WEB",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "DisplayItemStatus",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ALL",
+              "description": null
+            },
+            {
+              "name": "TO_BE_COMPLETED",
+              "description": null
+            },
+            {
+              "name": "COMPLETED",
+              "description": null
+            },
+            {
+              "name": "CANCEL",
+              "description": null
+            },
+            {
+              "name": "COMPLETED_PARTIAL_REFUNDED",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "DisplayOrderStatus",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ALL",
+              "description": null
+            },
+            {
+              "name": "UNPAID",
+              "description": null
+            },
+            {
+              "name": "PENDING",
+              "description": null
+            },
+            {
+              "name": "COMPLETED",
+              "description": null
+            },
+            {
+              "name": "CANCELLED",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "ExtInfo",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "clickId",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "videoId",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "userType",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "FeedMode",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "FULL",
+              "description": null
+            },
+            {
+              "name": "DELTA",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "Float",
+          "kind": "SCALAR",
+          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point).",
+          "fields": null,
+          "enumValues": null
+        },
+        {
+          "name": "FraudStatus",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ALL",
+              "description": null
+            },
+            {
+              "name": "UNVERIFIED",
+              "description": null
+            },
+            {
+              "name": "VERIFIED",
+              "description": null
+            },
+            {
+              "name": "FRAUD",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "ID",
+          "kind": "SCALAR",
+          "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
+          "fields": null,
+          "enumValues": null
+        },
+        {
+          "name": "Int",
+          "kind": "SCALAR",
+          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+          "fields": null,
+          "enumValues": null
+        },
+        {
+          "name": "Int64",
+          "kind": "SCALAR",
+          "description": null,
+          "fields": null,
+          "enumValues": null
+        },
+        {
+          "name": "ItemFeed",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "datafeedId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "referenceId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "datafeedName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "totalCount",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "date",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "feedMode",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ItemFeedDataConnection",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "rows",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "pageInfo",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ItemFeedDataRow",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "columns",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "updateType",
+              "description": null,
+              "type": {
+                "name": "DeltaDataUpdateType",
+                "kind": "ENUM"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ItemFeedListConnection",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "feeds",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ItemFeedPageInfo",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "offset",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "limit",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "totalCount",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "hasMore",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "Mutation",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "generateShortLink",
+              "description": null,
+              "type": {
+                "name": "ShortLinkResult",
+                "kind": "OBJECT"
+              }
+            },
+            {
+              "name": "generateBatchShortLink",
+              "description": null,
+              "type": {
+                "name": "BatchShortLinkResult",
+                "kind": "OBJECT"
+              }
+            },
+            {
+              "name": "syncAffiliateStatus",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "Offer",
+          "kind": "INTERFACE",
+          "description": null,
+          "fields": [
+            {
+              "name": "commissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "appExistRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "appNewRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "webExistRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "webNewRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "OfferStatus",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ONGOING",
+              "description": null
+            },
+            {
+              "name": "UPCOMING",
+              "description": null
+            },
+            {
+              "name": "ENDED",
+              "description": null
+            },
+            {
+              "name": "TERMINATED",
+              "description": null
+            },
+            {
+              "name": "PAUSED",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "OfferType",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "SHOPEE",
+              "description": null
+            },
+            {
+              "name": "PRODUCT",
+              "description": null
+            },
+            {
+              "name": "BRAND",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "OfferUpdate",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "originalOfferStatus",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "updateOfferStatus",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "updateTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "PageInfo",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "page",
+              "description": null,
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "limit",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "hasNextPage",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "scrollId",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "PartnerOrder",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "orderId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "purchaseTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "completeTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "orderStatus",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "buyerType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "productType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "items",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "extInfo",
+              "description": null,
+              "type": {
+                "name": "ExtInfo",
+                "kind": "OBJECT"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "PartnerOrderReportConnection",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "nodes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "searchNextPageInfo",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "PartnerReportOrderItem",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "itemId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "categoryLv1Name",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "categoryLv2Name",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "categoryLv3Name",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "itemPrice",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "qty",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "actualAmount",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "refundAmount",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ProductOffer",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "commissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "appExistRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "appNewRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "webExistRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "webNewRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "commission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "price",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "sales",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "productName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerStatus",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "isBrandProduct",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "periodEndTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "periodStartTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerUpdates",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ProductOfferConnection",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "nodes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "pageInfo",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ProductOfferConnectionV2",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "nodes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "pageInfo",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ProductOfferOrder",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "HIGHEST_COMMISSION_RATE",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "ProductOfferV2",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "itemId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "commissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "appExistRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "appNewRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "webExistRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "webNewRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "commission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "price",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "sales",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "productName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "productLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "periodEndTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "periodStartTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "priceMin",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "priceMax",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "productCatIds",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            },
+            {
+              "name": "ratingStar",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "priceDiscountRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            },
+            {
+              "name": "sellerCommissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopeeCommissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ProductType",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ALL",
+              "description": null
+            },
+            {
+              "name": "MP",
+              "description": null
+            },
+            {
+              "name": "DP",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "Query",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "brandOffer",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopOfferV2",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopeeOffer",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopeeOfferV2",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "productOffer",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "productOfferV2",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "conversionReport",
+              "description": "checkoutId deprecated\nconversionStatus deprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "validatedReport",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "checkAffiliateId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "partnerOrderReport",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "listItemFeeds",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "getItemFeedData",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "RateUnit",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "PERCENT",
+              "description": null
+            },
+            {
+              "name": "DECIMAL",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "Result",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "result",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "SearchNextPageInfo",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "size",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "limit",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "searchNextToken",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "debugId",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ShopOfferConnectionV2",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "nodes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "pageInfo",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ShopOfferV2",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "commissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "originalLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "periodStartTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "periodEndTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "bannerInfo",
+              "description": null,
+              "type": {
+                "name": "BannerInfo",
+                "kind": "OBJECT"
+              }
+            },
+            {
+              "name": "ratingStar",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            },
+            {
+              "name": "remainingBudget",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "sellerCommCoveRatio",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ShopType",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "None",
+              "description": null
+            },
+            {
+              "name": "ALL",
+              "description": null
+            },
+            {
+              "name": "SHOPEE_MALL_CB",
+              "description": null
+            },
+            {
+              "name": "SHOPEE_MALL_NON_CB",
+              "description": null
+            },
+            {
+              "name": "C2C_CB",
+              "description": null
+            },
+            {
+              "name": "C2C_NON_CB",
+              "description": null
+            },
+            {
+              "name": "PREFERRED_CB",
+              "description": null
+            },
+            {
+              "name": "PREFERRED_NON_CB",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "ShopeeOffer",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "commissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "appExistRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "appNewRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "webExistRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "webNewRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerDetails",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerStatus",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "periodEndTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "periodStartTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopId",
+              "description": null,
+              "type": {
+                "name": "Int64",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "catId",
+              "description": null,
+              "type": {
+                "name": "Int64",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "collectionLabelId",
+              "description": null,
+              "type": {
+                "name": "Int64",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "productLabelId",
+              "description": null,
+              "type": {
+                "name": "Int64",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "productScope",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerUpdates",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ShopeeOfferConnection",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "nodes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "pageInfo",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ShopeeOfferConnectionV2",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "nodes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "pageInfo",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ShopeeOfferOrder",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "NEWEST",
+              "description": null
+            },
+            {
+              "name": "HIGEST_COMMISSION_RATE",
+              "description": null
+            },
+            {
+              "name": "ENDING_SOON",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "ShopeeOfferType",
+          "kind": "ENUM",
+          "description": null,
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "ALL",
+              "description": null
+            },
+            {
+              "name": "HOMEPAGE",
+              "description": null
+            },
+            {
+              "name": "CAMPAIGN",
+              "description": null
+            },
+            {
+              "name": "SHOP",
+              "description": null
+            },
+            {
+              "name": "CATEGORY",
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "ShopeeOfferV2",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "commissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "originalLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "offerType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "categoryId",
+              "description": null,
+              "type": {
+                "name": "Int64",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "collectionId",
+              "description": null,
+              "type": {
+                "name": "Int64",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "periodStartTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "periodEndTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ShortLinkInput",
+          "kind": "INPUT_OBJECT",
+          "description": null,
+          "fields": null,
+          "enumValues": null
+        },
+        {
+          "name": "ShortLinkResult",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "shortLink",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "String",
+          "kind": "SCALAR",
+          "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+          "fields": null,
+          "enumValues": null
+        },
+        {
+          "name": "ValidatedReport",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "clickTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "purchaseTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "conversionId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopeeCommissionCapped",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "sellerCommission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "totalCommission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "buyerType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "utmContent",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "device",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "productType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "referrer",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "netCommission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "mcnManagementFeeRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "mcnManagementFee",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "mcnContractId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "linkedMcnName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "orders",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ValidatedReportConnection",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "nodes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "pageInfo",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ValidatedReportOrder",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "orderId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopType",
+              "description": null,
+              "type": {
+                "name": "ShopType",
+                "kind": "ENUM"
+              }
+            },
+            {
+              "name": "orderStatus",
+              "description": null,
+              "type": {
+                "name": "DisplayOrderStatus",
+                "kind": "ENUM"
+              }
+            },
+            {
+              "name": "items",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "ValidatedReportOrderItem",
+          "kind": "OBJECT",
+          "description": null,
+          "fields": [
+            {
+              "name": "shopId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "shopName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "completeTime",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "promotionId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "modelId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemId",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemPrice",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "displayItemStatus",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "actualAmount",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "refundAmount",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "qty",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemTotalCommission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemSellerCommission",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemSellerCommissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemShopeeCommissionCapped",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemShopeeCommissionRate",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "itemNotes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "globalCategoryLv1Name",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "globalCategoryLv2Name",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "globalCategoryLv3Name",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "fraudStatus",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "fraudReason",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "attributionType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "channelType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "campaignPartnerName",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "campaignType",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "__Directive",
+          "kind": "OBJECT",
+          "description": "A Directive provides a way to describe alternate runtime execution and type validation behavior in a GraphQL document.\n\nIn some cases, you need to provide options to alter GraphQL's execution behavior\nin ways field arguments will not suffice, such as conditionally including or\nskipping a field. Directives provide this by describing additional information\nto the executor.",
+          "fields": [
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "locations",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "args",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "__DirectiveLocation",
+          "kind": "ENUM",
+          "description": "A Directive can be adjacent to many parts of the GraphQL language, a\n__DirectiveLocation describes one such possible adjacencies.",
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "QUERY",
+              "description": "Location adjacent to a query operation."
+            },
+            {
+              "name": "MUTATION",
+              "description": "Location adjacent to a mutation operation."
+            },
+            {
+              "name": "SUBSCRIPTION",
+              "description": "Location adjacent to a subscription operation."
+            },
+            {
+              "name": "FIELD",
+              "description": "Location adjacent to a field."
+            },
+            {
+              "name": "FRAGMENT_DEFINITION",
+              "description": "Location adjacent to a fragment definition."
+            },
+            {
+              "name": "FRAGMENT_SPREAD",
+              "description": "Location adjacent to a fragment spread."
+            },
+            {
+              "name": "INLINE_FRAGMENT",
+              "description": "Location adjacent to an inline fragment."
+            },
+            {
+              "name": "SCHEMA",
+              "description": "Location adjacent to a schema definition."
+            },
+            {
+              "name": "SCALAR",
+              "description": "Location adjacent to a scalar definition."
+            },
+            {
+              "name": "OBJECT",
+              "description": "Location adjacent to an object type definition."
+            },
+            {
+              "name": "FIELD_DEFINITION",
+              "description": "Location adjacent to a field definition."
+            },
+            {
+              "name": "ARGUMENT_DEFINITION",
+              "description": "Location adjacent to an argument definition."
+            },
+            {
+              "name": "INTERFACE",
+              "description": "Location adjacent to an interface definition."
+            },
+            {
+              "name": "UNION",
+              "description": "Location adjacent to a union definition."
+            },
+            {
+              "name": "ENUM",
+              "description": "Location adjacent to an enum definition."
+            },
+            {
+              "name": "ENUM_VALUE",
+              "description": "Location adjacent to an enum value definition."
+            },
+            {
+              "name": "INPUT_OBJECT",
+              "description": "Location adjacent to an input object type definition."
+            },
+            {
+              "name": "INPUT_FIELD_DEFINITION",
+              "description": "Location adjacent to an input object field definition."
+            }
+          ]
+        },
+        {
+          "name": "__EnumValue",
+          "kind": "OBJECT",
+          "description": "One possible value for a given Enum. Enum values are unique values, not a\nplaceholder for a string or numeric value. However an Enum value is returned in\na JSON response as a string.",
+          "fields": [
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "isDeprecated",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "deprecationReason",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "__Field",
+          "kind": "OBJECT",
+          "description": "Object and Interface types are described by a list of Fields, each of which has\na name, potentially a list of arguments, and a return type.",
+          "fields": [
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "args",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "type",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "isDeprecated",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "deprecationReason",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "__InputValue",
+          "kind": "OBJECT",
+          "description": "Arguments provided to Fields or Directives and the input fields of an\nInputObject are represented as Input Values which describe their type and\noptionally a default value.",
+          "fields": [
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "type",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "defaultValue",
+              "description": "A GraphQL-formatted string representing the default value for this input value.",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "__Schema",
+          "kind": "OBJECT",
+          "description": "A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all\navailable types and directives on the server, as well as the entry points for\nquery, mutation, and subscription operations.",
+          "fields": [
+            {
+              "name": "types",
+              "description": "A list of all types supported by this server.",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "queryType",
+              "description": "The type that query operations will be rooted at.",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "mutationType",
+              "description": "If this server supports mutation, the type that mutation operations will be rooted at.",
+              "type": {
+                "name": "__Type",
+                "kind": "OBJECT"
+              }
+            },
+            {
+              "name": "subscriptionType",
+              "description": "If this server support subscription, the type that subscription operations will be rooted at.",
+              "type": {
+                "name": "__Type",
+                "kind": "OBJECT"
+              }
+            },
+            {
+              "name": "directives",
+              "description": "A list of all directives supported by this server.",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "__Type",
+          "kind": "OBJECT",
+          "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of\ntypes in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that\ntype. Scalar types provide no information beyond a name and description, while\nEnum types provide their values. Object and Interface types provide the fields\nthey describe. Abstract types, Union and Interface, provide the Object types\npossible at runtime. List and NonNull types compose other types.",
+          "fields": [
+            {
+              "name": "kind",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "NON_NULL"
+              }
+            },
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            },
+            {
+              "name": "fields",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            },
+            {
+              "name": "interfaces",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            },
+            {
+              "name": "possibleTypes",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            },
+            {
+              "name": "enumValues",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            },
+            {
+              "name": "inputFields",
+              "description": null,
+              "type": {
+                "name": null,
+                "kind": "LIST"
+              }
+            },
+            {
+              "name": "ofType",
+              "description": null,
+              "type": {
+                "name": "__Type",
+                "kind": "OBJECT"
+              }
+            }
+          ],
+          "enumValues": null
+        },
+        {
+          "name": "__TypeKind",
+          "kind": "ENUM",
+          "description": "An enum describing what kind of type a given `__Type` is.",
+          "fields": null,
+          "enumValues": [
+            {
+              "name": "SCALAR",
+              "description": "Indicates this type is a scalar."
+            },
+            {
+              "name": "OBJECT",
+              "description": "Indicates this type is an object. `fields` and `interfaces` are valid fields."
+            },
+            {
+              "name": "INTERFACE",
+              "description": "Indicates this type is an interface. `fields` and `possibleTypes` are valid fields."
+            },
+            {
+              "name": "UNION",
+              "description": "Indicates this type is a union. `possibleTypes` is a valid field."
+            },
+            {
+              "name": "ENUM",
+              "description": "Indicates this type is an enum. `enumValues` is a valid field."
+            },
+            {
+              "name": "INPUT_OBJECT",
+              "description": "Indicates this type is an input object. `inputFields` is a valid field."
+            },
+            {
+              "name": "LIST",
+              "description": "Indicates this type is a list. `ofType` is a valid field."
+            },
+            {
+              "name": "NON_NULL",
+              "description": "Indicates this type is a non-null. `ofType` is a valid field."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
