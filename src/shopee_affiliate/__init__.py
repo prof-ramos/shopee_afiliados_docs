@@ -11,4 +11,5 @@ Import recomendado para uso externo:
 
 from .client import ShopeeAffiliateClient
 
+__version__ = "1.0.0"
 __all__ = ["ShopeeAffiliateClient"]

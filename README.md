@@ -1,7 +1,11 @@
 # Shopee Affiliate API Client
 
+[![CI](https://github.com/gabrielramos/shopee_afiliados_docs/actions/workflows/ci.yml/badge.svg)](https://github.com/gabrielramos/shopee_afiliados_docs/actions/workflows/ci.yml)
+[![Release](https://github.com/gabrielramos/shopee_afiliados_docs/actions/workflows/release.yml/badge.svg)](https://github.com/gabrielramos/shopee_afiliados_docs/actions/workflows/release.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://docs.astral.sh/ruff/)
+[![Security: bandit](https://img.shields.io/badge/security-bandit-success.svg)](https://github.com/PyCQA/bandit)
 [![Tests](https://img.shields.io/badge/tests-77.8%25-success-green.svg)](https://github.com/gabrielramos/shopee_afiliados_docs)
 [![Issues](https://img.shields.io/github/issues/gabrielramos/shopee_afiliados_docs.svg)](https://github.com/gabrielramos/shopee_afiliados_docs/issues)
 
@@ -142,7 +146,21 @@ report = client.get_conversion_report(
 
 ```bash
 # Rodar suite completa de testes
-uv run --python .venv/bin/python python scripts/run_all_tests.py
+pytest tests/ -v
+
+# Rodar apenas testes unitários (sem credenciais)
+pytest tests/ -m "not integration" -v
+
+# Rodar com cobertura
+pytest tests/ --cov=src/shopee_affiliate --cov-report=html
+
+# Usando ruff para lint
+ruff check src/ examples/ scripts/ tests/
+ruff format src/ examples/ scripts/ tests/
+
+# Verificação de segurança
+bandit -r src/
+safety check
 ```
 
 ### Status dos Testes
