@@ -134,7 +134,7 @@ def investigate_conversion_report_type(client: ShopeeAffiliateClient):
             if nested_type and nested_type.get("kind") == "OBJECT":
                 nested_fields = nested_type.get("fields", [])
                 if nested_fields:
-                    print(f"      Subcampos:")
+                    print("      Subcampos:")
                     for nf in nested_fields[:10]:  # Limitar a 10
                         nf_name = nf.get("name")
                         nf_type = resolve_type(nf.get("type"))
@@ -222,7 +222,7 @@ def get_real_conversion_data(client: ShopeeAffiliateClient):
         for order in orders:
             order_id = order.get("orderId")
 
-            print(f"\n  Order:")
+            print("\n  Order:")
             print(f"    orderId: {order_id}")
             print(f"    shopType: {order.get('shopType')}")
             print(f"    orderStatus: {order.get('orderStatus')}")
