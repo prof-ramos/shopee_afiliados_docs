@@ -203,6 +203,15 @@ shopee_afiliados_docs/
 - **Documentação Oficial**: https://www.affiliateshopee.com.br/documentacao/index
 - **Portal de Afiliados**: https://www.affiliateshopee.com.br/
 
+## ☕ Apoiar o Projeto
+
+Se este projeto foi útil para você, considere apoiar o desenvolvimento:
+
+- **GitHub Sponsors**: https://github.com/sponsors/prof-ramos
+- **Buy Me a Coffee**: https://www.buymeacoffee.com/gabrielramos
+
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/gabrielramos)
+
 ## Contribuindo
 
 Contribuições são bem-vindas! Por favor, leia o [CONTRIBUTING.md](CONTRIBUTING.md) para detalhes sobre nosso código de conduta e o processo para enviar pull requests.

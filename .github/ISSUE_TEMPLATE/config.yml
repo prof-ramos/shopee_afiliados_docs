@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentação
+    url: https://github.com/prof-ramos/shopee_afiliados_docs/blob/main/docs/GUIA_COMPLETO.md
+    about: Leia a documentação completa antes de abrir uma issue
