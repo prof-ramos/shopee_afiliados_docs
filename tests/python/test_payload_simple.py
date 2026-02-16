@@ -3,7 +3,6 @@
 Testa formato de payload da API Shopee Affiliate.
 """
 
-import json
 import hashlib
 import time
 

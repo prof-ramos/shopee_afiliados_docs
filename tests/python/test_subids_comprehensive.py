@@ -16,7 +16,7 @@ load_dotenv()
 
 # Add examples directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../examples/python'))
-from shopee_affiliate_client import ShopeeAffiliateClient
+from shopee_affiliate_client import ShopeeAffiliateClient  # noqa: E402
 
 class SubIdTester:
     """Test various subId formats against Shopee Affiliate API."""
@@ -70,20 +70,20 @@ class SubIdTester:
             if "errors" in response:
                 result["result"] = "ERROR"
                 result["error"] = response["errors"][0].get("message", "Unknown error")
-                print(f"✗ Result: ERROR")
+                print("✗ Result: ERROR")
                 print(f"  Error: {result['error']}")
             else:
                 result["result"] = "SUCCESS"
                 result["error"] = None
                 short_link = response.get("data", {}).get("generateShortLink", {}).get("shortLink", "")
-                print(f"✓ Result: SUCCESS")
+                print("✓ Result: SUCCESS")
                 if short_link:
                     print(f"  ShortLink: {short_link}")
 
         except Exception as e:
             result["result"] = "EXCEPTION"
             result["error"] = str(e)
-            print(f"✗ Result: EXCEPTION")
+            print("✗ Result: EXCEPTION")
             print(f"  Error: {str(e)}")
 
         self.results.append(result)

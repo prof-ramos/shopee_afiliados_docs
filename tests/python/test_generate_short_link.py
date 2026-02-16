@@ -68,7 +68,7 @@ def test_generate_short_link():
             return False
 
         short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
-        print(f"   OK: Short link gerado com subIds")
+        print("   OK: Short link gerado com subIds")
         print(f"   URL Original: {test_url}")
         print(f"   Sub IDs: {sub_ids}")
         print(f"   Short Link: {short_link}")
@@ -91,7 +91,7 @@ def test_generate_short_link():
             return False
 
         short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
-        print(f"   OK: Short link gerado para produto real")
+        print("   OK: Short link gerado para produto real")
         print(f"   Short Link: {short_link}")
 
     except Exception as e:
@@ -114,7 +114,7 @@ def test_generate_short_link():
             return False
 
         short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
-        print(f"   OK: Short link gerado com 5 subIds")
+        print("   OK: Short link gerado com 5 subIds")
         print(f"   Sub IDs: {sub_ids_max}")
         print(f"   Short Link: {short_link}")
 
@@ -136,7 +136,7 @@ def test_generate_short_link():
             return False
 
         short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
-        print(f"   OK: Short link de loja gerado")
+        print("   OK: Short link de loja gerado")
         print(f"   Short Link: {short_link}")
 
     except Exception as e:

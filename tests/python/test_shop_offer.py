@@ -4,7 +4,6 @@ Teste do endpoint shopOfferV2 da API Shopee Affiliate.
 """
 
 import sys
-import json
 sys.path.insert(0, 'examples/python')
 from shopee_affiliate_client import ShopeeAffiliateClient
 

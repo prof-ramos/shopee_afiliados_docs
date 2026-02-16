@@ -4,7 +4,6 @@ Verifica formato de payload da API Shopee Affiliate.
 """
 
 import hashlib
-import json
 import time
 
 # Para este teste de assinatura, qualquer valor serve.

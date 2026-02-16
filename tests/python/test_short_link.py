@@ -46,7 +46,7 @@ def main():
         short_link = data.get('shortLink', '')
 
         if short_link:
-            print(f'\n✅ SUCESSO: Link curto gerado!')
+            print('\n✅ SUCESSO: Link curto gerado!')
             print(f'   Original: {test_url}')
             print(f'   ShortLink: {short_link}')
         else:

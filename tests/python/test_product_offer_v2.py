@@ -3,7 +3,6 @@
 Teste do endpoint productOfferV2 da API Shopee Affiliate.
 """
 
-import json
 import sys
 import os
 from dotenv import load_dotenv
@@ -12,7 +11,7 @@ from dotenv import load_dotenv
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, os.path.join(ROOT, "examples", "python"))
 
-from shopee_affiliate_client import ShopeeAffiliateClient
+from shopee_affiliate_client import ShopeeAffiliateClient  # noqa: E402
 
 # Credenciais (via .env)
 load_dotenv()
@@ -147,7 +146,7 @@ def test_product_offer_v2():
             if missing_fields:
                 print(f"   AVISO: Campos faltando: {missing_fields}")
             else:
-                print(f"   OK: Todos os campos requeridos estão presentes")
+                print("   OK: Todos os campos requeridos estão presentes")
         else:
             print("   INFO: Nenhum produto retornado para verificação")
 
