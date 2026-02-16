@@ -17,7 +17,8 @@ APP_ID = os.getenv("SHOPEE_APP_ID")
 APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
 
 if not APP_ID or not APP_SECRET:
-    raise SystemExit("Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)")
+    import pytest
+    pytest.skip("Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)")
 
 def main():
     client = ShopeeAffiliateClient(APP_ID, APP_SECRET)
