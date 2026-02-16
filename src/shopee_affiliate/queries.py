@@ -49,7 +49,6 @@ _SHOPEE_OFFER_V2 = _load("shopeeOfferV2.graphql")
 _SHOP_OFFER_V2 = _load("shopOfferV2.graphql")
 _PRODUCT_OFFER_V2 = _load("productOfferV2.graphql")
 _CONVERSION_REPORT = _load("conversionReport.graphql")
-_VALIDATED_REPORT = _load("validatedReport.graphql")
 _GENERATE_SHORT_LINK = _load("generateShortLink.graphql")
 
 
@@ -133,29 +132,6 @@ def q_conversion_report(
 
     return _render(
         _CONVERSION_REPORT,
-        {
-            "purchaseTimeStart": str(purchase_time_start),
-            "purchaseTimeEnd": str(purchase_time_end),
-            "scrollIdLine": scroll_id_line,
-            "limit": str(limit),
-        },
-    )
-
-
-def q_validated_report(
-    *,
-    purchase_time_start: int,
-    purchase_time_end: int,
-    scroll_id: Optional[str],
-    limit: int,
-) -> str:
-    # Como o `scrollId` é um argumento opcional, injetamos uma linha inteira ou vazio.
-    scroll_id_line = (
-        f"scrollId: {json.dumps(scroll_id)}" if scroll_id is not None else ""
-    )
-
-    return _render(
-        _VALIDATED_REPORT,
         {
             "purchaseTimeStart": str(purchase_time_start),
             "purchaseTimeEnd": str(purchase_time_end),

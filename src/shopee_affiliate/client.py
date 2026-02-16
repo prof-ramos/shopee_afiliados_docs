@@ -113,26 +113,6 @@ class ShopeeAffiliateClient:
         )
         return self._request(query)
 
-    def get_validated_report(
-        self,
-        purchase_time_start: int,
-        purchase_time_end: int,
-        scroll_id: Optional[str] = None,
-        limit: int = 10,
-    ) -> Dict[str, Any]:
-        """Retorna relatório de comissões validadas (definitivas).
-
-        Diferente de conversionReport, este endpoint retorna apenas comissões
-        que já foram validadas pela Shopee, ou seja, valores definitivos.
-        """
-        query = queries.q_validated_report(
-            purchase_time_start=purchase_time_start,
-            purchase_time_end=purchase_time_end,
-            scroll_id=scroll_id,
-            limit=limit,
-        )
-        return self._request(query)
-
     def iter_conversion_report_pages(
         self,
         purchase_time_start: int,
@@ -169,64 +149,6 @@ class ShopeeAffiliateClient:
 
             if not has_next or not scroll_id:
                 return
-
-    def iter_validated_report_pages(
-        self,
-        purchase_time_start: int,
-        purchase_time_end: int,
-        *,
-        limit: int = 500,
-        max_pages: Optional[int] = None,
-    ) -> Iterator[Dict[str, Any]]:
-        """Itera páginas do validatedReport sem acumular tudo em memória.
-
-        Útil para relatórios grandes de comissões validadas.
-
-        Yields: resposta JSON (dict) por página.
-        """
-        scroll_id: Optional[str] = None
-        page = 0
-        while True:
-            page += 1
-            if max_pages is not None and page > max_pages:
-                return
-
-            resp = self.get_validated_report(
-                purchase_time_start=purchase_time_start,
-                purchase_time_end=purchase_time_end,
-                scroll_id=scroll_id,
-                limit=limit,
-            )
-            yield resp
-
-            data = resp.get("data", {}).get("validatedReport", {})
-            page_info = data.get("pageInfo", {}) if isinstance(data, dict) else {}
-            has_next = page_info.get("hasNextPage")
-            scroll_id = page_info.get("scrollId")
-
-            if not has_next or not scroll_id:
-                return
-
-    def iter_validated_report_orders(
-        self,
-        purchase_time_start: int,
-        purchase_time_end: int,
-        *,
-        limit: int = 500,
-        max_pages: Optional[int] = None,
-    ) -> Iterator[Dict[str, Any]]:
-        """Itera orders individuais (achatado) do validatedReport."""
-        for resp in self.iter_validated_report_pages(
-            purchase_time_start,
-            purchase_time_end,
-            limit=limit,
-            max_pages=max_pages,
-        ):
-            data = resp.get("data", {}).get("validatedReport", {})
-            nodes = data.get("nodes", []) if isinstance(data, dict) else []
-            for node in nodes:
-                for order in node.get("orders") or []:
-                    yield order
 
     def iter_conversion_report_orders(
         self,

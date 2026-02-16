@@ -12,7 +12,7 @@ Cliente Python não-oficial para API de Afiliados da Shopee Brasil. Gerenciado c
 
 - Cliente Python completo para API Shopee Affiliate
 - Schema descoberto via introspecção GraphQL
-- 6 endpoints principais testados e documentados
+- 5 endpoints principais testados e documentados
 - Autenticação SHA256 com assinatura dinâmica
 - Suporte a paginação e filtros avançados
 - **100% compatível com uv** (10-100x mais rápido que pip)
@@ -24,7 +24,6 @@ Cliente Python não-oficial para API de Afiliados da Shopee Brasil. Gerenciado c
 3. **productOfferV2** - Busca de produtos por keyword ou shop
 4. **generateShortLink** - Geração de links de afiliado
 5. **conversionReport** - Relatório de conversões (estimado)
-6. **validatedReport** - Relatório de comissões validadas (definitivo)
 
 ## Instalação Rápida com uv
 
@@ -118,19 +117,21 @@ import time
 now = int(time.time())
 week_ago = now - (7 * 24 * 60 * 60)
 
-# Relatório estimado
+# Relatório de conversões
 report = client.get_conversion_report(
     purchase_time_start=week_ago,
     purchase_time_end=now,
     limit=50
 )
 
-# Relatório validado (comissões definitivas)
-validated = client.get_validated_report(
+# Iterar sobre páginas
+for page in client.iter_conversion_report_pages(
     purchase_time_start=week_ago,
     purchase_time_end=now,
-    limit=50
-)
+    limit=100
+):
+    for order in page['data']['conversionReport']['nodes']:
+        print(f"Order: {order.get('orderId')}")
 ```
 
 ## Comandos uv
