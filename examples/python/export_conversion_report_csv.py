@@ -29,8 +29,12 @@ from shopee_affiliate import ShopeeAffiliateClient
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser()
     p.add_argument("--days", type=int, default=30, help="Janela retroativa em dias")
-    p.add_argument("--out", type=str, default="conversion_report.csv", help="Arquivo CSV de saída")
-    p.add_argument("--max-pages", type=int, default=None, help="Limita número de páginas (debug)")
+    p.add_argument(
+        "--out", type=str, default="conversion_report.csv", help="Arquivo CSV de saída"
+    )
+    p.add_argument(
+        "--max-pages", type=int, default=None, help="Limita número de páginas (debug)"
+    )
     p.add_argument("--limit", type=int, default=500, help="Itens por página (máx 500)")
     return p.parse_args()
 
@@ -43,7 +47,9 @@ def main() -> int:
     app_id = os.getenv("SHOPEE_APP_ID")
     secret = os.getenv("SHOPEE_APP_SECRET") or os.getenv("SHOPEE_SECRET")
     if not app_id or not secret:
-        raise SystemExit("Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET (ou SHOPEE_SECRET) no .env")
+        raise SystemExit(
+            "Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET (ou SHOPEE_SECRET) no .env"
+        )
 
     client = ShopeeAffiliateClient(app_id, secret)
 

@@ -16,7 +16,11 @@ from typing import List, Optional
 
 
 def _load(name: str) -> str:
-    return resources.files("shopee_affiliate.graphql").joinpath(name).read_text(encoding="utf-8")
+    return (
+        resources.files("shopee_affiliate.graphql")
+        .joinpath(name)
+        .read_text(encoding="utf-8")
+    )
 
 
 def _render(template: str, mapping: dict[str, str]) -> str:
@@ -33,7 +37,9 @@ _CONVERSION_REPORT = _load("conversionReport.graphql")
 _GENERATE_SHORT_LINK = _load("generateShortLink.graphql")
 
 
-def q_shopee_offer_v2(*, keyword: Optional[str], sort_type: int, page: int, limit: int) -> str:
+def q_shopee_offer_v2(
+    *, keyword: Optional[str], sort_type: int, page: int, limit: int
+) -> str:
     return _render(
         _SHOPEE_OFFER_V2,
         {
@@ -105,7 +111,9 @@ def q_conversion_report(
     limit: int,
 ) -> str:
     # Como o `scrollId` é um argumento opcional, injetamos uma linha inteira ou vazio.
-    scroll_id_line = f"scrollId: {json.dumps(scroll_id)}" if scroll_id is not None else ""
+    scroll_id_line = (
+        f"scrollId: {json.dumps(scroll_id)}" if scroll_id is not None else ""
+    )
 
     return _render(
         _CONVERSION_REPORT,

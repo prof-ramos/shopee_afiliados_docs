@@ -138,9 +138,14 @@ def introspect_conversion_report():
                 fields = type_info.get("fields", [])
                 print(f"   Campos ({len(fields)}):")
                 for field in fields:
-                    type_name = field.get("type", {}).get("name") or field.get("type", {}).get("ofType", {}).get("name", "Unknown")
+                    type_name = field.get("type", {}).get("name") or field.get(
+                        "type", {}
+                    ).get("ofType", {}).get("name", "Unknown")
                     desc = field.get("description", "")
-                    print(f"   - {field.get('name')}: {type_name}" + (f" // {desc}" if desc else ""))
+                    print(
+                        f"   - {field.get('name')}: {type_name}"
+                        + (f" // {desc}" if desc else "")
+                    )
             else:
                 print("   Tipo não encontrado")
     except Exception as e:
@@ -181,9 +186,14 @@ def introspect_conversion_report():
                 fields = type_info.get("fields", [])
                 print(f"   Campos ({len(fields)}):")
                 for field in fields:
-                    type_name = field.get("type", {}).get("name") or field.get("type", {}).get("ofType", {}).get("name", "Unknown")
+                    type_name = field.get("type", {}).get("name") or field.get(
+                        "type", {}
+                    ).get("ofType", {}).get("name", "Unknown")
                     desc = field.get("description", "")
-                    print(f"   - {field.get('name')}: {type_name}" + (f" // {desc}" if desc else ""))
+                    print(
+                        f"   - {field.get('name')}: {type_name}"
+                        + (f" // {desc}" if desc else "")
+                    )
             else:
                 print("   Tipo não encontrado")
     except Exception as e:
@@ -234,7 +244,9 @@ def introspect_conversion_report():
                     orders = node.get("orders", [])
                     print(f"   Node {i}: {len(orders)} order(s)")
                     for order in orders[:2]:
-                        print(f"     - OrderID: {order.get('orderId')}, Status: {order.get('orderStatus')}")
+                        print(
+                            f"     - OrderID: {order.get('orderId')}, Status: {order.get('orderStatus')}"
+                        )
     except Exception as e:
         print(f"   Erro: {e}")
 
@@ -278,7 +290,7 @@ def introspect_all_query_types():
                 fields = type_info.get("fields", [])
                 print(f"   Campos disponíveis ({len(fields)}):")
                 for field in fields:
-                    field_name = field.get('name')
+                    field_name = field.get("name")
                     field_type = field.get("type", {}).get("name", "Unknown")
                     print(f"   - {field_name}: {field_type}")
             else:
@@ -330,11 +342,16 @@ def introspect_product_offer_v2():
                 fields = type_info.get("fields", [])
                 print(f"   Campos disponíveis ({len(fields)}):")
                 for field in fields:
-                    field_name = field.get('name')
+                    field_name = field.get("name")
                     field_type = field.get("type", {})
-                    type_name = field_type.get("name") or field_type.get("ofType", {}).get("name", "Unknown")
+                    type_name = field_type.get("name") or field_type.get(
+                        "ofType", {}
+                    ).get("name", "Unknown")
                     desc = field.get("description", "")
-                    print(f"   - {field_name}: {type_name}" + (f" // {desc}" if desc else ""))
+                    print(
+                        f"   - {field_name}: {type_name}"
+                        + (f" // {desc}" if desc else "")
+                    )
             else:
                 print("   Tipo não encontrado")
     except Exception as e:

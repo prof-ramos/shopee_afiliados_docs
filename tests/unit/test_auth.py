@@ -2,8 +2,8 @@ from shopee_affiliate.auth import generate_signature, build_authorization_header
 
 
 def test_generate_signature_is_deterministic():
-    sig1 = generate_signature("1", "secret", "{\"query\":\"x\"}", 123)
-    sig2 = generate_signature("1", "secret", "{\"query\":\"x\"}", 123)
+    sig1 = generate_signature("1", "secret", '{"query":"x"}', 123)
+    sig2 = generate_signature("1", "secret", '{"query":"x"}', 123)
     assert sig1 == sig2
 
 

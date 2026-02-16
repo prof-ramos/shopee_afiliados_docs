@@ -45,7 +45,9 @@ class ShopeeAffiliateTransport:
         self.retry = retry or RetryConfig()
         self.session = session or requests.Session()
 
-    def request(self, query: str, variables: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def request(
+        self, query: str, variables: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         payload: Dict[str, Any] = {"query": query}
         if variables:
             payload["variables"] = variables
@@ -56,7 +58,9 @@ class ShopeeAffiliateTransport:
         for attempt in range(1, self.retry.max_attempts + 1):
             # Recalcula Authorization a cada tentativa (timestamp novo)
             headers = {
-                "Authorization": build_authorization_header(self.app_id, self.app_secret, payload_str),
+                "Authorization": build_authorization_header(
+                    self.app_id, self.app_secret, payload_str
+                ),
                 "Content-Type": "application/json",
             }
 
@@ -69,7 +73,10 @@ class ShopeeAffiliateTransport:
                 )
 
                 # Rate limit / transient errors
-                if resp.status_code in self.retry.retry_statuses and attempt < self.retry.max_attempts:
+                if (
+                    resp.status_code in self.retry.retry_statuses
+                    and attempt < self.retry.max_attempts
+                ):
                     sleep_s: float | None = None
 
                     # Respeita Retry-After quando presente

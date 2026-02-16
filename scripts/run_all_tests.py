@@ -33,17 +33,13 @@ class TestRunner:
 
     def __init__(self, client: ShopeeAffiliateClient):
         self.client = client
-        self.results = {
-            "passed": [],
-            "failed": [],
-            "errors": []
-        }
+        self.results = {"passed": [], "failed": [], "errors": []}
 
     def print_header(self, text):
         """Imprime cabeçalho de teste."""
         print(f"\n{'=' * 70}")
         print(f"  {text}")
-        print('=' * 70)
+        print("=" * 70)
 
     def print_result(self, test_name, success, message="", data=None):
         """Registra e imprime resultado de um teste."""
@@ -52,7 +48,7 @@ class TestRunner:
             "success": success,
             "message": message,
             "data": data,
-            "timestamp": int(time.time())
+            "timestamp": int(time.time()),
         }
 
         if success:
@@ -77,20 +73,24 @@ class TestRunner:
                 keyword="roupas",
                 sort_type=2,  # Maior comissão
                 page=1,
-                limit=5
+                limit=5,
             )
 
             if "errors" in result:
-                self.print_result("shopeeOfferV2 com keyword", False,
-                                   f"Erros: {result['errors']}")
+                self.print_result(
+                    "shopeeOfferV2 com keyword", False, f"Erros: {result['errors']}"
+                )
                 return
 
             data = result.get("data", {}).get("shopeeOfferV2", {})
             nodes = data.get("nodes", [])
 
-            self.print_result("shopeeOfferV2 com keyword", True,
-                                f"{len(nodes)} ofertas encontradas",
-                                {"offers": len(nodes), "example": nodes[0] if nodes else None})
+            self.print_result(
+                "shopeeOfferV2 com keyword",
+                True,
+                f"{len(nodes)} ofertas encontradas",
+                {"offers": len(nodes), "example": nodes[0] if nodes else None},
+            )
 
         except Exception as e:
             self.print_result("shopeeOfferV2 com keyword", False, f"Exceção: {str(e)}")
@@ -100,19 +100,18 @@ class TestRunner:
         self.print_header("TESTE 2: shopeeOfferV2 - Todas as ofertas")
 
         try:
-            result = self.client.get_shopee_offers(
-                sort_type=2,
-                limit=3
-            )
+            result = self.client.get_shopee_offers(sort_type=2, limit=3)
 
             if "errors" in result:
-                self.print_result("shopeeOfferV2 todas", False,
-                                   f"Erros: {result['errors']}")
+                self.print_result(
+                    "shopeeOfferV2 todas", False, f"Erros: {result['errors']}"
+                )
                 return
 
             nodes = result.get("data", {}).get("shopeeOfferV2", {}).get("nodes", [])
-            self.print_result("shopeeOfferV2 todas", True,
-                                f"{len(nodes)} ofertas encontradas")
+            self.print_result(
+                "shopeeOfferV2 todas", True, f"{len(nodes)} ofertas encontradas"
+            )
 
         except Exception as e:
             self.print_result("shopeeOfferV2 todas", False, f"Exceção: {str(e)}")
@@ -126,20 +125,24 @@ class TestRunner:
             result = self.client.get_shop_offers(
                 shop_type=[1],  # Official shops
                 sort_type=2,  # Maior comissão
-                limit=5
+                limit=5,
             )
 
             if "errors" in result:
-                self.print_result("shopOfferV2 com shopType", False,
-                                   f"Erros: {result['errors']}")
+                self.print_result(
+                    "shopOfferV2 com shopType", False, f"Erros: {result['errors']}"
+                )
                 return
 
             data = result.get("data", {}).get("shopOfferV2", {})
             nodes = data.get("nodes", [])
 
-            self.print_result("shopOfferV2 com shopType", True,
-                                f"{len(nodes)} lojas encontradas",
-                                {"shops": len(nodes), "example": nodes[0] if nodes else None})
+            self.print_result(
+                "shopOfferV2 com shopType",
+                True,
+                f"{len(nodes)} lojas encontradas",
+                {"shops": len(nodes), "example": nodes[0] if nodes else None},
+            )
 
         except Exception as e:
             self.print_result("shopOfferV2 com shopType", False, f"Exceção: {str(e)}")
@@ -153,20 +156,24 @@ class TestRunner:
             result = self.client.get_product_offers(
                 keyword="iphone",
                 sort_type=5,  # Maior comissão
-                limit=5
+                limit=5,
             )
 
             if "errors" in result:
-                self.print_result("productOfferV2 com keyword", False,
-                                   f"Erros: {result['errors']}")
+                self.print_result(
+                    "productOfferV2 com keyword", False, f"Erros: {result['errors']}"
+                )
                 return
 
             data = result.get("data", {}).get("productOfferV2", {})
             nodes = data.get("nodes", [])
 
-            self.print_result("productOfferV2 com keyword", True,
-                                f"{len(nodes)} produtos encontrados",
-                                {"products": len(nodes), "example": nodes[0] if nodes else None})
+            self.print_result(
+                "productOfferV2 com keyword",
+                True,
+                f"{len(nodes)} produtos encontrados",
+                {"products": len(nodes), "example": nodes[0] if nodes else None},
+            )
 
         except Exception as e:
             self.print_result("productOfferV2 com keyword", False, f"Exceção: {str(e)}")
@@ -178,17 +185,19 @@ class TestRunner:
         try:
             result = self.client.get_product_offers(
                 shop_id=123456,  # Shop ID genérico
-                limit=3
+                limit=3,
             )
 
             if "errors" in result:
-                self.print_result("productOfferV2 por shopId", False,
-                                   f"Erros: {result['errors']}")
+                self.print_result(
+                    "productOfferV2 por shopId", False, f"Erros: {result['errors']}"
+                )
                 return
 
             nodes = result.get("data", {}).get("productOfferV2", {}).get("nodes", [])
-            self.print_result("productOfferV2 por shopId", True,
-                                f"{len(nodes)} produtos encontrados")
+            self.print_result(
+                "productOfferV2 por shopId", True, f"{len(nodes)} produtos encontrados"
+            )
 
         except Exception as e:
             self.print_result("productOfferV2 por shopId", False, f"Exceção: {str(e)}")
@@ -201,18 +210,24 @@ class TestRunner:
             # subIds: a API rejeita alguns formatos (ex.: underscore). Use somente letras/números.
             result = self.client.generate_short_link(
                 origin_url="https://shopee.com.br/product/123456",
-                sub_ids=["campanhaA", "bannerB"]  # 2 sub-IDs (exemplo oficial)
+                sub_ids=["campanhaA", "bannerB"],  # 2 sub-IDs (exemplo oficial)
             )
 
             if "errors" in result:
-                self.print_result("generateShortLink básico", False,
-                                   f"Erros: {result['errors']}")
+                self.print_result(
+                    "generateShortLink básico", False, f"Erros: {result['errors']}"
+                )
                 return
 
-            short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
-            self.print_result("generateShortLink básico", True,
-                                f"Link gerado: {short_link}",
-                                {"shortLink": short_link})
+            short_link = (
+                result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+            )
+            self.print_result(
+                "generateShortLink básico",
+                True,
+                f"Link gerado: {short_link}",
+                {"shortLink": short_link},
+            )
 
         except Exception as e:
             self.print_result("generateShortLink básico", False, f"Exceção: {str(e)}")
@@ -225,16 +240,22 @@ class TestRunner:
             )
 
             if "errors" in result:
-                self.print_result("generateShortLink sem subIds", False,
-                                   f"Erros: {result['errors']}")
+                self.print_result(
+                    "generateShortLink sem subIds", False, f"Erros: {result['errors']}"
+                )
                 return
 
-            short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
-            self.print_result("generateShortLink sem subIds", True,
-                                f"Link gerado: {short_link}")
+            short_link = (
+                result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+            )
+            self.print_result(
+                "generateShortLink sem subIds", True, f"Link gerado: {short_link}"
+            )
 
         except Exception as e:
-            self.print_result("generateShortLink sem subIds", False, f"Exceção: {str(e)}")
+            self.print_result(
+                "generateShortLink sem subIds", False, f"Exceção: {str(e)}"
+            )
 
     def test_8_conversion_report_empty(self):
         """Testa conversionReport - Período recente (vazio)."""
@@ -245,21 +266,21 @@ class TestRunner:
             week_ago = now - (7 * 24 * 60 * 60)
 
             result = self.client.get_conversion_report(
-                purchase_time_start=week_ago,
-                purchase_time_end=now,
-                limit=10
+                purchase_time_start=week_ago, purchase_time_end=now, limit=10
             )
 
             if "errors" in result:
-                self.print_result("conversionReport 7 dias", False,
-                                   f"Erros: {result['errors']}")
+                self.print_result(
+                    "conversionReport 7 dias", False, f"Erros: {result['errors']}"
+                )
                 return
 
             data = result.get("data", {}).get("conversionReport", {})
             nodes = data.get("nodes", [])
 
-            self.print_result("conversionReport 7 dias", True,
-                                f"{len(nodes)} conversões retornadas")
+            self.print_result(
+                "conversionReport 7 dias", True, f"{len(nodes)} conversões retornadas"
+            )
 
         except Exception as e:
             self.print_result("conversionReport 7 dias", False, f"Exceção: {str(e)}")
@@ -273,14 +294,13 @@ class TestRunner:
             three_days_ago = now - (3 * 24 * 60 * 60)
 
             result = self.client.get_conversion_report(
-                purchase_time_start=three_days_ago,
-                purchase_time_end=now,
-                limit=5
+                purchase_time_start=three_days_ago, purchase_time_end=now, limit=5
             )
 
             if "errors" in result:
-                self.print_result("conversionReport estrutura", False,
-                                   f"Erros: {result['errors']}")
+                self.print_result(
+                    "conversionReport estrutura", False, f"Erros: {result['errors']}"
+                )
                 return
 
             data = result.get("data", {}).get("conversionReport", {})
@@ -297,7 +317,17 @@ class TestRunner:
                 sample = nodes[0]
                 # Mantém leve: só garante que é dict e tem pelo menos 1 campo conhecido
                 sample_checks.append(isinstance(sample, dict))
-                sample_checks.append(any(k in sample for k in ["orders", "buyerType", "purchaseTime", "purchaseStatus"]))
+                sample_checks.append(
+                    any(
+                        k in sample
+                        for k in [
+                            "orders",
+                            "buyerType",
+                            "purchaseTime",
+                            "purchaseStatus",
+                        ]
+                    )
+                )
 
             ok = has_top_keys and all(sample_checks) if nodes else has_top_keys
 
@@ -305,7 +335,7 @@ class TestRunner:
                 "conversionReport estrutura",
                 ok,
                 f"nodes={len(nodes)} (estrutura ok, não exige pedidos)",
-                {"hasTopKeys": has_top_keys, "nodes": len(nodes)}
+                {"hasTopKeys": has_top_keys, "nodes": len(nodes)},
             )
 
         except Exception as e:
@@ -345,7 +375,7 @@ class TestRunner:
         print(f"\n  ✅ TESTES PASSOU: {passed}")
         print(f"  ❌ TESTES FALHARAM: {failed}")
         print(f"  📊 TOTAL: {passed + failed}")
-        print(f"  📈 TAXA DE SUCESSO: {(passed/(passed+failed)*100):.1f}%")
+        print(f"  📈 TAXA DE SUCESSO: {(passed / (passed + failed) * 100):.1f}%")
 
         if failed == 0:
             print("\n  🎉 TODOS OS TESTES PASSARAM!")

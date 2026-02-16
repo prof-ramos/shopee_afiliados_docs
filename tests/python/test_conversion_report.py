@@ -17,12 +17,17 @@ sys.path.insert(0, os.path.join(ROOT, "examples", "python"))
 load_dotenv()
 
 from shopee_affiliate_client import ShopeeAffiliateClient  # noqa: E402
+
 SHOPEE_APP_ID = os.getenv("SHOPEE_APP_ID")
 SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
 
 if not SHOPEE_APP_ID or not SHOPEE_APP_SECRET:
     import pytest
-    pytest.skip("Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)")
+
+    pytest.skip(
+        "Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)"
+    )
+
 
 def test_conversion_report():
     """Testa o endpoint conversionReport com scrollId."""
@@ -47,15 +52,21 @@ def test_conversion_report():
             purchase_time_start=thirty_days_ago,
             purchase_time_end=now,
             scroll_id=None,
-            limit=10
+            limit=10,
         )
 
         if "errors" in result:
-            error_msg = result['errors'][0].get('message', 'Unknown error')
+            error_msg = result["errors"][0].get("message", "Unknown error")
             print(f"   ERRO: {error_msg}")
             # Se for erro de permissão ou dados vazios, pode ser esperado
-            if "no data" in error_msg.lower() or "permission" in error_msg.lower() or "empty" in error_msg.lower():
-                print("   INFO: Pode ser que não há conversões no período ou acesso limitado")
+            if (
+                "no data" in error_msg.lower()
+                or "permission" in error_msg.lower()
+                or "empty" in error_msg.lower()
+            ):
+                print(
+                    "   INFO: Pode ser que não há conversões no período ou acesso limitado"
+                )
                 return True
             return False
 
@@ -67,7 +78,7 @@ def test_conversion_report():
         print(f"   Limit: {page_info.get('limit')}")
         print(f"   HasNextPage: {page_info.get('hasNextPage')}")
 
-        scroll_id = page_info.get('scrollId')
+        scroll_id = page_info.get("scrollId")
         if scroll_id:
             print(f"   ScrollId: {scroll_id[:20]}... (truncado)")
         else:
@@ -81,11 +92,12 @@ def test_conversion_report():
     except Exception as e:
         print(f"   ERRO: {e}")
         import traceback
+
         traceback.print_exc()
         return False
 
     # Teste 2: Paginação com scrollId (se houver próxima página)
-    if nodes and page_info.get('hasNextPage') and scroll_id:
+    if nodes and page_info.get("hasNextPage") and scroll_id:
         print("\n[2] Buscar próxima página com scrollId...")
         try:
             # IMPORTANTE: scrollId expira em 30 segundos!
@@ -93,11 +105,11 @@ def test_conversion_report():
                 purchase_time_start=thirty_days_ago,
                 purchase_time_end=now,
                 scroll_id=scroll_id,
-                limit=10
+                limit=10,
             )
 
             if "errors" in result2:
-                error_msg = result2['errors'][0].get('message', 'Unknown error')
+                error_msg = result2["errors"][0].get("message", "Unknown error")
                 print(f"   ERRO: {error_msg}")
                 if "expired" in error_msg.lower() or "invalid" in error_msg.lower():
                     print("   INFO: ScrollId pode ter expirado (30 segundos)")
@@ -114,6 +126,7 @@ def test_conversion_report():
         except Exception as e:
             print(f"   ERRO: {e}")
             import traceback
+
             traceback.print_exc()
             return False
     else:
@@ -125,14 +138,11 @@ def test_conversion_report():
         week_ago = now - (7 * 24 * 60 * 60)
 
         result_week = client.get_conversion_report(
-            purchase_time_start=week_ago,
-            purchase_time_end=now,
-            scroll_id=None,
-            limit=5
+            purchase_time_start=week_ago, purchase_time_end=now, scroll_id=None, limit=5
         )
 
         if "errors" in result_week:
-            error_msg = result_week['errors'][0].get('message', 'Unknown error')
+            error_msg = result_week["errors"][0].get("message", "Unknown error")
             print(f"   INFO: {error_msg}")
         else:
             data_week = result_week.get("data", {}).get("conversionReport", {})
@@ -149,11 +159,11 @@ def test_conversion_report():
             purchase_time_start=thirty_days_ago,
             purchase_time_end=now,
             scroll_id="",
-            limit=5
+            limit=5,
         )
 
         if "errors" in result_empty:
-            error_msg = result_empty['errors'][0].get('message', 'Unknown error')
+            error_msg = result_empty["errors"][0].get("message", "Unknown error")
             print(f"   INFO: {error_msg}")
         else:
             data_empty = result_empty.get("data", {}).get("conversionReport", {})
@@ -170,11 +180,11 @@ def test_conversion_report():
             purchase_time_start=thirty_days_ago,
             purchase_time_end=now,
             scroll_id=None,
-            limit=100
+            limit=100,
         )
 
         if "errors" in result_100:
-            error_msg = result_100['errors'][0].get('message', 'Unknown error')
+            error_msg = result_100["errors"][0].get("message", "Unknown error")
             print(f"   INFO: {error_msg}")
         else:
             data_100 = result_100.get("data", {}).get("conversionReport", {})

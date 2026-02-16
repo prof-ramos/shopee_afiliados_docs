@@ -15,12 +15,17 @@ sys.path.insert(0, os.path.join(ROOT, "examples", "python"))
 load_dotenv()
 
 from shopee_affiliate_client import ShopeeAffiliateClient  # noqa: E402
+
 SHOPEE_APP_ID = os.getenv("SHOPEE_APP_ID")
 SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
 
 if not SHOPEE_APP_ID or not SHOPEE_APP_SECRET:
     import pytest
-    pytest.skip("Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)")
+
+    pytest.skip(
+        "Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)"
+    )
+
 
 def test_generate_short_link():
     """Testa o endpoint generateShortLink com diferentes parâmetros."""
@@ -35,15 +40,15 @@ def test_generate_short_link():
     print("\n[1] Gerar link básico (sem subIds)...")
     try:
         test_url = "https://shopee.com.br/product-test-123.123"
-        result = client.generate_short_link(
-            origin_url=test_url
-        )
+        result = client.generate_short_link(origin_url=test_url)
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
             return False
 
-        short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        short_link = (
+            result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        )
         print("   OK: Short link gerado")
         print(f"   URL Original: {test_url}")
         print(f"   Short Link: {short_link}")
@@ -58,16 +63,15 @@ def test_generate_short_link():
         test_url = "https://shopee.com.br/iphone-capa-456.456"
         sub_ids = ["s1", "s2", "s3"]
 
-        result = client.generate_short_link(
-            origin_url=test_url,
-            sub_ids=sub_ids
-        )
+        result = client.generate_short_link(origin_url=test_url, sub_ids=sub_ids)
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
             return False
 
-        short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        short_link = (
+            result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        )
         print("   OK: Short link gerado com subIds")
         print(f"   URL Original: {test_url}")
         print(f"   Sub IDs: {sub_ids}")
@@ -80,17 +84,18 @@ def test_generate_short_link():
     # Teste 3: Link com URL de produto real
     print("\n[3] Gerar link para URL de produto real...")
     try:
-        real_url = "https://shopee.com.br/Samsung-Galaxy-A54-5G-128GB-i.258921743.123456789"
-        result = client.generate_short_link(
-            origin_url=real_url,
-            sub_ids=["t1"]
+        real_url = (
+            "https://shopee.com.br/Samsung-Galaxy-A54-5G-128GB-i.258921743.123456789"
         )
+        result = client.generate_short_link(origin_url=real_url, sub_ids=["t1"])
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
             return False
 
-        short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        short_link = (
+            result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        )
         print("   OK: Short link gerado para produto real")
         print(f"   Short Link: {short_link}")
 
@@ -104,16 +109,15 @@ def test_generate_short_link():
         test_url = "https://shopee.com.br/test-max-subids.789.789"
         sub_ids_max = ["source1", "source2", "source3", "source4", "source5"]
 
-        result = client.generate_short_link(
-            origin_url=test_url,
-            sub_ids=sub_ids_max
-        )
+        result = client.generate_short_link(origin_url=test_url, sub_ids=sub_ids_max)
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
             return False
 
-        short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        short_link = (
+            result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        )
         print("   OK: Short link gerado com 5 subIds")
         print(f"   Sub IDs: {sub_ids_max}")
         print(f"   Short Link: {short_link}")
@@ -126,16 +130,15 @@ def test_generate_short_link():
     print("\n[5] Gerar link de loja...")
     try:
         shop_url = "https://shopee.com.br/nike-oficial"
-        result = client.generate_short_link(
-            origin_url=shop_url,
-            sub_ids=["n1"]
-        )
+        result = client.generate_short_link(origin_url=shop_url, sub_ids=["n1"])
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
             return False
 
-        short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        short_link = (
+            result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        )
         print("   OK: Short link de loja gerado")
         print(f"   Short Link: {short_link}")
 
@@ -147,18 +150,22 @@ def test_generate_short_link():
     print("\n[6] Validando formato do short link...")
     try:
         test_url = "https://shopee.com.br/test-format.123.123"
-        result = client.generate_short_link(
-            origin_url=test_url
-        )
+        result = client.generate_short_link(origin_url=test_url)
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
             return False
 
-        short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        short_link = (
+            result.get("data", {}).get("generateShortLink", {}).get("shortLink")
+        )
 
         # Verificar se é uma URL válida do Shopee
-        if short_link and ("shope.ee" in short_link or "shopee.com.br" in short_link or "shp.ee" in short_link):
+        if short_link and (
+            "shope.ee" in short_link
+            or "shopee.com.br" in short_link
+            or "shp.ee" in short_link
+        ):
             print("   OK: Short link tem formato válido")
             print(f"   Short Link: {short_link}")
         else:

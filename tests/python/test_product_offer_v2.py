@@ -20,7 +20,11 @@ SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
 
 if not SHOPEE_APP_ID or not SHOPEE_APP_SECRET:
     import pytest
-    pytest.skip("Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)")
+
+    pytest.skip(
+        "Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)"
+    )
+
 
 def test_product_offer_v2():
     """Testa o endpoint productOfferV2 com diferentes parâmetros."""
@@ -38,7 +42,7 @@ def test_product_offer_v2():
             keyword="celular",
             sort_type=5,  # Maior comissão
             page=1,
-            limit=3
+            limit=3,
         )
 
         if "errors" in result:
@@ -50,10 +54,14 @@ def test_product_offer_v2():
         page_info = data.get("pageInfo", {})
 
         print(f"   OK: {len(nodes)} produtos encontrados")
-        print(f"   Page: {page_info.get('page')}, HasNext: {page_info.get('hasNextPage')}")
+        print(
+            f"   Page: {page_info.get('page')}, HasNext: {page_info.get('hasNextPage')}"
+        )
 
         for i, product in enumerate(nodes, 1):
-            print(f"   {i}. {product.get('productName')} - R${product.get('price')} - {product.get('commissionRate')}%")
+            print(
+                f"   {i}. {product.get('productName')} - R${product.get('price')} - {product.get('commissionRate')}%"
+            )
 
     except Exception as e:
         print(f"   ERRO: {e}")
@@ -62,11 +70,7 @@ def test_product_offer_v2():
     # Teste 2: Busca por item_id específico
     print("\n[2] Busca por itemId específico...")
     try:
-        result = client.get_product_offers(
-            item_id=123456789,
-            page=1,
-            limit=1
-        )
+        result = client.get_product_offers(item_id=123456789, page=1, limit=1)
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
@@ -83,11 +87,7 @@ def test_product_offer_v2():
     # Teste 3: Busca por shop_id
     print("\n[3] Busca por shopId...")
     try:
-        result = client.get_product_offers(
-            shop_id=123456,
-            page=1,
-            limit=2
-        )
+        result = client.get_product_offers(shop_id=123456, page=1, limit=2)
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
@@ -107,7 +107,7 @@ def test_product_offer_v2():
         result = client.get_product_offers(
             sort_type=5,  # Maior comissão
             page=1,
-            limit=2
+            limit=2,
         )
 
         if "errors" in result:
@@ -126,16 +126,21 @@ def test_product_offer_v2():
     # Teste 5: Verificar campos retornados
     print("\n[5] Verificando campos retornados...")
     required_fields = [
-        'itemId', 'productName', 'commissionRate', 'price',
-        'sales', 'ratingStar', 'imageUrl', 'shopId', 'shopName',
-        'productLink', 'offerLink'
+        "itemId",
+        "productName",
+        "commissionRate",
+        "price",
+        "sales",
+        "ratingStar",
+        "imageUrl",
+        "shopId",
+        "shopName",
+        "productLink",
+        "offerLink",
     ]
 
     try:
-        result = client.get_product_offers(
-            keyword="teste",
-            limit=1
-        )
+        result = client.get_product_offers(keyword="teste", limit=1)
 
         data = result.get("data", {}).get("productOfferV2", {})
         nodes = data.get("nodes", [])

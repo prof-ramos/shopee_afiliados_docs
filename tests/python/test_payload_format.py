@@ -18,10 +18,10 @@ timestamp = int(time.time())
 
 # Payload como Python gera
 payload_python = {
-    "query": "query shopeeOfferV2 { keyword: \"roupas\", sortType: 2, page: 1, limit: 5 }"
+    "query": 'query shopeeOfferV2 { keyword: "roupas", sortType: 2, page: 1, limit: 5 }'
 }
 
-sign_factor_python = f'{app_id}{timestamp}{payload_python}{app_secret}'
+sign_factor_python = f"{app_id}{timestamp}{payload_python}{app_secret}"
 signature_python = hashlib.sha256(sign_factor_python.encode()).hexdigest()
 
 print("=== Python (json.dumps) ===")

@@ -43,7 +43,7 @@ class ShopeeAffiliateClient:
         payload_str = json.dumps(payload, separators=(",", ":"))
         headers = {
             "Authorization": self._get_auth_header(payload_str),
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         }
 
         response = requests.post(self.base_url, headers=headers, data=payload_str)
@@ -57,7 +57,7 @@ class ShopeeAffiliateClient:
         keyword: Optional[str] = None,
         sort_type: int = 1,
         page: int = 1,
-        limit: int = 10
+        limit: int = 10,
     ) -> Dict[str, Any]:
         """
         Busca ofertas da Shopee.
@@ -74,7 +74,7 @@ class ShopeeAffiliateClient:
         query = f"""
         query {{
           shopeeOfferV2(
-            keyword: {json.dumps(keyword) if keyword else 'null'}
+            keyword: {json.dumps(keyword) if keyword else "null"}
             sortType: {sort_type}
             page: {page}
             limit: {limit}
@@ -109,7 +109,7 @@ class ShopeeAffiliateClient:
         is_key_seller: bool = False,
         sort_type: int = 1,
         page: int = 1,
-        limit: int = 10
+        limit: int = 10,
     ) -> Dict[str, Any]:
         """
         Busca ofertas de lojas.
@@ -174,7 +174,7 @@ class ShopeeAffiliateClient:
         match_id: Optional[int] = None,
         sort_type: int = 1,
         page: int = 1,
-        limit: int = 10
+        limit: int = 10,
     ) -> Dict[str, Any]:
         """
         Busca ofertas de produtos.
@@ -244,7 +244,7 @@ class ShopeeAffiliateClient:
         purchase_time_start: int,
         purchase_time_end: int,
         scroll_id: Optional[str] = None,
-        limit: int = 500
+        limit: int = 500,
     ) -> Dict[str, Any]:
         """
         Busca relatório de conversão.
@@ -270,7 +270,7 @@ class ShopeeAffiliateClient:
         if scroll_id is not None:
             scroll_id_param = f'scrollId: "{scroll_id}"'
         else:
-            scroll_id_param = ''
+            scroll_id_param = ""
 
         query = f"""
         query {{
@@ -315,9 +315,7 @@ class ShopeeAffiliateClient:
     # ============== MUTATIONS ==============
 
     def generate_short_link(
-        self,
-        origin_url: str,
-        sub_ids: Optional[List[str]] = None
+        self, origin_url: str, sub_ids: Optional[List[str]] = None
     ) -> Dict[str, Any]:
         """
         Gera link curto de rastreamento.
@@ -359,10 +357,7 @@ class ShopeeAffiliateClient:
     # ============== PAGINAÇÃO COM SCROLLID ==============
 
     def get_all_conversion_pages(
-        self,
-        purchase_time_start: int,
-        purchase_time_end: int,
-        limit: int = 500
+        self, purchase_time_start: int, purchase_time_end: int, limit: int = 500
     ) -> List[Dict[str, Any]]:
         """
         Busca todas as páginas do relatório de conversão.
@@ -404,6 +399,7 @@ class ShopeeAffiliateClient:
 
 # ============== EXEMPLOS DE USO ==============
 
+
 def example_usage():
     """Exemplos de uso do cliente Shopee Affiliate."""
 
@@ -419,7 +415,7 @@ def example_usage():
         keyword="roupas",
         sort_type=2,  # Maior comissão
         page=1,
-        limit=5
+        limit=5,
     )
     print(json.dumps(offers, indent=2, ensure_ascii=False))
 
@@ -428,7 +424,7 @@ def example_usage():
     shops = client.get_shop_offers(
         shop_type=[1],  # Official shops
         sort_type=2,  # Maior comissão
-        limit=5
+        limit=5,
     )
     print(json.dumps(shops, indent=2, ensure_ascii=False))
 
@@ -437,7 +433,7 @@ def example_usage():
     products = client.get_product_offers(
         keyword="iphone",
         sort_type=5,  # Maior comissão
-        limit=5
+        limit=5,
     )
     print(json.dumps(products, indent=2, ensure_ascii=False))
 
@@ -445,22 +441,24 @@ def example_usage():
     print("\n=== Link Curto ===")
     short_link = client.generate_short_link(
         origin_url="https://shopee.com.br/produto-exemplo",
-        sub_ids=["promo1", "canalEmail"]  # Use apenas letras e números (sem underscore)
+        sub_ids=[
+            "promo1",
+            "canalEmail",
+        ],  # Use apenas letras e números (sem underscore)
     )
     print(json.dumps(short_link, indent=2, ensure_ascii=False))
 
     # 5. Relatório de conversão (últimos 7 dias)
     print("\n=== Relatório de Conversão ===")
     import time
+
     now = int(time.time())
     week_ago = now - (7 * 24 * 60 * 60)
 
     try:
         # Primeira página
         report = client.get_conversion_report(
-            purchase_time_start=week_ago,
-            purchase_time_end=now,
-            limit=10
+            purchase_time_start=week_ago, purchase_time_end=now, limit=10
         )
         print(json.dumps(report, indent=2, ensure_ascii=False))
 

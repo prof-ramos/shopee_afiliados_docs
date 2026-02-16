@@ -20,7 +20,11 @@ SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
 
 if not SHOPEE_APP_ID or not SHOPEE_APP_SECRET:
     import pytest
-    pytest.skip("Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)")
+
+    pytest.skip(
+        "Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)"
+    )
+
 
 def test_shop_offer_v2():
     """Testa o endpoint shopOfferV2 com diferentes parâmetros."""
@@ -38,7 +42,7 @@ def test_shop_offer_v2():
             shop_type=[1],  # Official shops
             sort_type=2,  # Maior comissão
             page=1,
-            limit=3
+            limit=3,
         )
 
         if "errors" in result:
@@ -50,10 +54,14 @@ def test_shop_offer_v2():
         page_info = data.get("pageInfo", {})
 
         print(f"   OK: {len(nodes)} lojas encontradas")
-        print(f"   Page: {page_info.get('page')}, HasNext: {page_info.get('hasNextPage')}")
+        print(
+            f"   Page: {page_info.get('page')}, HasNext: {page_info.get('hasNextPage')}"
+        )
 
         for i, shop in enumerate(nodes, 1):
-            print(f"   {i}. {shop.get('shopName')} - {shop.get('shopType')} - {shop.get('commissionRate')}%")
+            print(
+                f"   {i}. {shop.get('shopName')} - {shop.get('shopType')} - {shop.get('commissionRate')}%"
+            )
 
     except Exception as e:
         print(f"   ERRO: {e}")
@@ -65,7 +73,7 @@ def test_shop_offer_v2():
         result = client.get_shop_offers(
             shop_type=[2],  # Preferred shops
             sort_type=2,
-            limit=3
+            limit=3,
         )
 
         if "errors" in result:
@@ -87,11 +95,7 @@ def test_shop_offer_v2():
     # Teste 3: Busca por keyword
     print("\n[3] Busca por keyword 'nike'...")
     try:
-        result = client.get_shop_offers(
-            keyword="nike",
-            sort_type=2,
-            limit=3
-        )
+        result = client.get_shop_offers(keyword="nike", sort_type=2, limit=3)
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
@@ -114,7 +118,7 @@ def test_shop_offer_v2():
     try:
         result = client.get_shop_offers(
             sort_type=1,  # latest
-            limit=3
+            limit=3,
         )
 
         if "errors" in result:
@@ -133,15 +137,23 @@ def test_shop_offer_v2():
     # Teste 5: Verificar campos retornados
     print("\n[5] Verificando campos retornados...")
     required_fields = [
-        'commissionRate', 'imageUrl', 'offerLink', 'originalLink',
-        'shopId', 'shopName', 'ratingStar', 'shopType',
-        'remainingBudget', 'periodStartTime', 'periodEndTime'
+        "commissionRate",
+        "imageUrl",
+        "offerLink",
+        "originalLink",
+        "shopId",
+        "shopName",
+        "ratingStar",
+        "shopType",
+        "remainingBudget",
+        "periodStartTime",
+        "periodEndTime",
     ]
 
     try:
         result = client.get_shop_offers(
             shop_type=[1, 2],  # Official + Preferred
-            limit=1
+            limit=1,
         )
 
         data = result.get("data", {}).get("shopOfferV2", {})
@@ -164,10 +176,7 @@ def test_shop_offer_v2():
     # Teste 6: Testar isKeySeller
     print("\n[6] Testando isKeySeller=true...")
     try:
-        result = client.get_shop_offers(
-            is_key_seller=True,
-            limit=3
-        )
+        result = client.get_shop_offers(is_key_seller=True, limit=3)
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
@@ -187,7 +196,7 @@ def test_shop_offer_v2():
     try:
         result = client.get_shop_offers(
             shop_type=[1, 2, 4],  # Official + Preferred + Preferred Plus
-            limit=3
+            limit=3,
         )
 
         if "errors" in result:

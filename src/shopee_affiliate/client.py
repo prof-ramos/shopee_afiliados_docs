@@ -30,7 +30,9 @@ class ShopeeAffiliateClient:
 
     # ============== low-level ==============
 
-    def _request(self, query: str, variables: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def _request(
+        self, query: str, variables: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         return self.transport.request(query, variables=variables)
 
     # ============== QUERIES ==============
@@ -166,12 +168,14 @@ class ShopeeAffiliateClient:
             data = resp.get("data", {}).get("conversionReport", {})
             nodes = data.get("nodes", []) if isinstance(data, dict) else []
             for node in nodes:
-                for order in (node.get("orders") or []):
+                for order in node.get("orders") or []:
                     yield order
 
     # ============== MUTATIONS ==============
 
-    def generate_short_link(self, origin_url: str, sub_ids: Optional[List[str]] = None) -> Dict[str, Any]:
+    def generate_short_link(
+        self, origin_url: str, sub_ids: Optional[List[str]] = None
+    ) -> Dict[str, Any]:
         validate_sub_ids(sub_ids)
 
         query = queries.m_generate_short_link(origin_url=origin_url, sub_ids=sub_ids)

@@ -20,7 +20,11 @@ SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
 
 if not SHOPEE_APP_ID or not SHOPEE_APP_SECRET:
     import pytest
-    pytest.skip("Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)")
+
+    pytest.skip(
+        "Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)"
+    )
+
 
 def test_shopee_offer_v2():
     """Testa o endpoint shopeeOfferV2 com diferentes parâmetros."""
@@ -38,7 +42,7 @@ def test_shopee_offer_v2():
             keyword="moda",
             sort_type=2,  # Maior comissão
             page=1,
-            limit=3
+            limit=3,
         )
 
         if "errors" in result:
@@ -50,7 +54,9 @@ def test_shopee_offer_v2():
         page_info = data.get("pageInfo", {})
 
         print(f"   OK: {len(nodes)} ofertas encontradas")
-        print(f"   Page: {page_info.get('page')}, HasNext: {page_info.get('hasNextPage')}")
+        print(
+            f"   Page: {page_info.get('page')}, HasNext: {page_info.get('hasNextPage')}"
+        )
 
         for i, offer in enumerate(nodes, 1):
             print(f"   {i}. {offer.get('offerName')} - {offer.get('commissionRate')}%")
@@ -65,7 +71,7 @@ def test_shopee_offer_v2():
         result = client.get_shopee_offers(
             sort_type=1,  # LATEST_DESC
             page=1,
-            limit=3
+            limit=3,
         )
 
         if "errors" in result:
@@ -87,11 +93,7 @@ def test_shopee_offer_v2():
     # Teste 3: Testar diferentes sort_type
     print("\n[3] Testando sort_type=1 (LATEST_DESC)...")
     try:
-        result = client.get_shopee_offers(
-            keyword="beleza",
-            sort_type=1,
-            limit=2
-        )
+        result = client.get_shopee_offers(keyword="beleza", sort_type=1, limit=2)
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
@@ -108,11 +110,7 @@ def test_shopee_offer_v2():
 
     print("\n[4] Testando sort_type=2 (HIGHEST_COMMISSION_DESC)...")
     try:
-        result = client.get_shopee_offers(
-            keyword="casa",
-            sort_type=2,
-            limit=2
-        )
+        result = client.get_shopee_offers(keyword="casa", sort_type=2, limit=2)
 
         if "errors" in result:
             print(f"   ERRO: {result['errors']}")
@@ -130,16 +128,20 @@ def test_shopee_offer_v2():
     # Teste 5: Verificar campos retornados
     print("\n[5] Verificando campos retornados...")
     required_fields = [
-        'commissionRate', 'imageUrl', 'offerLink', 'originalLink',
-        'offerName', 'offerType', 'categoryId', 'collectionId',
-        'periodStartTime', 'periodEndTime'
+        "commissionRate",
+        "imageUrl",
+        "offerLink",
+        "originalLink",
+        "offerName",
+        "offerType",
+        "categoryId",
+        "collectionId",
+        "periodStartTime",
+        "periodEndTime",
     ]
 
     try:
-        result = client.get_shopee_offers(
-            keyword="teste",
-            limit=1
-        )
+        result = client.get_shopee_offers(keyword="teste", limit=1)
 
         data = result.get("data", {}).get("shopeeOfferV2", {})
         nodes = data.get("nodes", [])
@@ -161,29 +163,23 @@ def test_shopee_offer_v2():
     # Teste 6: Paginação
     print("\n[6] Testando paginação...")
     try:
-        result = client.get_shopee_offers(
-            keyword="eletronicos",
-            page=1,
-            limit=2
-        )
+        result = client.get_shopee_offers(keyword="eletronicos", page=1, limit=2)
 
         data = result.get("data", {}).get("shopeeOfferV2", {})
         page_info = data.get("pageInfo", {})
 
-        if page_info.get('hasNextPage'):
+        if page_info.get("hasNextPage"):
             # Buscar página 2
-            result2 = client.get_shopee_offers(
-                keyword="eletronicos",
-                page=2,
-                limit=2
-            )
+            result2 = client.get_shopee_offers(keyword="eletronicos", page=2, limit=2)
 
             data2 = result2.get("data", {}).get("shopeeOfferV2", {})
             nodes2 = data2.get("nodes", [])
 
             print(f"   OK: Página 2 retornou {len(nodes2)} ofertas")
         else:
-            print(f"   OK: Paginação funcionando (hasNextPage: {page_info.get('hasNextPage')})")
+            print(
+                f"   OK: Paginação funcionando (hasNextPage: {page_info.get('hasNextPage')})"
+            )
 
     except Exception as e:
         print(f"   ERRO: {e}")
