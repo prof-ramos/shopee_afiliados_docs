@@ -11,6 +11,7 @@ Arquivos de queries GraphQL otimizadas para a API de Afiliados da Shopee. Essas 
 | File | Description |
 |------|-------------|
 | `conversionReport.graphql` | Query para relatório de conversões (últimos 3 meses) |
+| `validatedReport.graphql` | Query para relatório de comissões validadas (definitivas) |
 | `generateShortLink.graphql` | Query para gerar links encurtados de afiliado |
 | `productOfferV2.graphql` | Query para ofertas de produto específico |
 | `shopeeOfferV2.graphql` | Query para ofertas gerais da Shopee |
@@ -47,6 +48,11 @@ query QueryName($param: Type!) {
 ### conversionReport.graphql
 - **Propósito**: Buscar relatório de conversões de afiliado
 - **Limitação**: Retorna apenas últimos 3 meses de dados
+- **Paginação**: Usa `scrollId` que expira em 30 segundos
+
+### validatedReport.graphql
+- **Propósito**: Buscar relatório de comissões validadas (definitivas)
+- **Diferença**: Retorna apenas comissões já validadas pela Shopee (valores definitivos)
 - **Paginação**: Usa `scrollId` que expira em 30 segundos
 
 ### generateShortLink.graphql

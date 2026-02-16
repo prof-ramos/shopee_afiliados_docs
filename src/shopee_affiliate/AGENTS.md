@@ -65,10 +65,17 @@ if not data.get("data"):
 
 ### Queries Disponíveis
 - `conversion_report()` - Relatório de conversões (últimos 3 meses)
-- `generate_short_link()` - Gera link encurtado de afiliado
+- `validated_report()` - Relatório de comissões validadas (definitivas)
+- `generate_short_link()` - Gera link encurtado de afiliado (suporta até 5 sub-IDs)
 - `product_offer_v2()` - Ofertas de produto específico
 - `shopee_offer_v2()` - Ofertas gerais da Shopee
 - `shop_offer_v2()` - Ofertas de loja específica
+
+### Iteradores (Paginação Automática)
+- `iter_conversion_report_pages()` - Itera páginas de conversionReport
+- `iter_conversion_report_orders()` - Itera orders individuais de conversionReport
+- `iter_validated_report_pages()` - Itera páginas de validatedReport
+- `iter_validated_report_orders()` - Itera orders individuais de validatedReport
 
 ### Exceções
 - `ShopeeAffiliateError` - Base exception

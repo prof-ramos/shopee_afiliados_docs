@@ -1,0 +1,36 @@
+query {
+  validatedReport(
+    purchaseTimeStart: {{purchaseTimeStart}}
+    purchaseTimeEnd: {{purchaseTimeEnd}}
+    {{scrollIdLine}}
+    limit: {{limit}}
+  ) {
+    nodes {
+      orders {
+        orderId
+        shopType
+        orderStatus
+        items {
+          itemId
+          itemName
+          itemTotalCommission
+          itemPrice
+          shopId
+          shopName
+          qty
+          globalCategoryLv1Name
+          globalCategoryLv2Name
+          globalCategoryLv3Name
+          imageUrl
+          itemSellerCommission
+          itemSellerCommissionRate
+        }
+      }
+    }
+    pageInfo {
+      limit
+      hasNextPage
+      scrollId
+    }
+  }
+}
