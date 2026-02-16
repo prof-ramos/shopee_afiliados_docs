@@ -381,7 +381,6 @@ class ShopeeAffiliateClient:
         """
         all_nodes = []
         scroll_id = None
-        page = 1
 
         while True:
             response = self.get_conversion_report(

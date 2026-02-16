@@ -34,5 +34,4 @@ print(f"Signature (hex): {signature_python}")
 # A API espera payload no formato JSON sem escape especial
 # Com parâmetros separados por espaço, não por vírgula
 
-payload_expected = '{\"query\": \"query shopeeOfferV2 { keyword: \"roupas\", \"sortType\": 2, \"page\": 1, \"limit\": 5 }\"
-'
+payload_expected = '{"query": "query shopeeOfferV2 { keyword: \\"roupas\\", \\"sortType\\": 2, \\"page\\": 1, \\"limit\\": 5 }"}'

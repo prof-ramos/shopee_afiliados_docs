@@ -280,7 +280,6 @@ def introspect_all_query_types():
                 for field in fields:
                     field_name = field.get('name')
                     field_type = field.get("type", {}).get("name", "Unknown")
-                    desc = field.get("description", "")
                     print(f"   - {field_name}: {field_type}")
             else:
                 print("   Tipo não encontrado")

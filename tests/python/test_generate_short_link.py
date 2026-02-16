@@ -3,7 +3,6 @@
 Teste do endpoint generateShortLink da API Shopee Affiliate.
 """
 
-import json
 import sys
 import os
 from dotenv import load_dotenv
@@ -12,10 +11,10 @@ from dotenv import load_dotenv
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, os.path.join(ROOT, "examples", "python"))
 
-from shopee_affiliate_client import ShopeeAffiliateClient
-
 # Credenciais (via .env)
 load_dotenv()
+
+from shopee_affiliate_client import ShopeeAffiliateClient
 SHOPEE_APP_ID = os.getenv("SHOPEE_APP_ID")
 SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
 
