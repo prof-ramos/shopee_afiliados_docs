@@ -21,6 +21,7 @@ if not APP_ID or not APP_SECRET:
     import pytest
 
     pytest.skip(
+        allow_module_level=True,
         "Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)"
     )
 
