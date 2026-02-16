@@ -21,10 +21,7 @@ SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
 if not SHOPEE_APP_ID or not SHOPEE_APP_SECRET:
     import pytest
 
-    pytest.skip(
-        allow_module_level=True,
-        "Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)"
-    )
+    pytest.skip("Defina SHOPEE_APP_ID e SHOPEE_APP_SECRET em um .env (veja .env.example)", allow_module_level=True)
 
 
 def test_shop_offer_v2():
