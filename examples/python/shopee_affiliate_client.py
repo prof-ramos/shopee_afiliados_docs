@@ -322,9 +322,19 @@ class ShopeeAffiliateClient:
         """
         Gera link curto de rastreamento.
 
+        REGRAS DE subIds (Testado em 16/02/2026):
+        - Apenas letras (A-Z, a-z) e números (0-9) são permitidos
+        - SEM underscore, hífen, ponto ou caracteres especiais
+        - SEM espaços ou acentos
+        - Arrays com 6+ itens são aceitos (contrário à documentação)
+        - Palavras como "email", "canal", "source" funcionam
+
+        ✅ VÁLIDOS: ["s1", "s2", "promo1", "email", "canal", "subId"]
+        ❌ INVÁLIDOS: ["sub_id", "test-1", "utm_source", "café", "a b"]
+
         Args:
             origin_url: URL original do produto Shopee
-            sub_ids: Lista de sub IDs para tracking (até 5)
+            sub_ids: Lista de sub IDs para tracking (apenas letras e números)
 
         Returns:
             Dict com shortLink gerado
@@ -436,7 +446,7 @@ def example_usage():
     print("\n=== Link Curto ===")
     short_link = client.generate_short_link(
         origin_url="https://shopee.com.br/produto-exemplo",
-        sub_ids=["promo1", "canal_email"]
+        sub_ids=["promo1", "canalEmail"]  # Use apenas letras e números (sem underscore)
     )
     print(json.dumps(short_link, indent=2, ensure_ascii=False))
 

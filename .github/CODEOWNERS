@@ -1,0 +1,21 @@
+# Código do projeto
+* @gabrielramos
+
+# Documentação
+/docs/ @gabrielramos
+*.md @gabrielramos
+
+# Scripts Python
+/scripts/ @gabrielramos
+*.py @gabrielramos
+
+# Testes
+/tests/ @gabrielramos
+
+# Configurações e Infraestrutura
+.github/ @gabrielramos
+*.yml @gabrielramos
+*.yaml @gabrielramos
+
+# Exemplos
+/examples/ @gabrielramos

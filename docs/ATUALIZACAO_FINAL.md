@@ -158,9 +158,28 @@ products = client.get_product_offers(
 ```python
 short_link = client.generate_short_link(
     origin_url="https://shopee.com.br/product/123456",
-    sub_ids=["campanha_a", "banner_topo"]  # Até 5 sub-IDs
+    sub_ids=["campanhaA", "bannerTopo"]  # Use letras e números apenas
 )
 # Retorna: {"shortLink": "https://shope.ee/abc123"}
+```
+
+**⚠️ IMPORTANTE - Regras de subIds** (Testado em 16/02/2026):
+- Apenas **letras (A-Z, a-z)** e **números (0-9)** são permitidos
+- **Sem** underscore, hífen, ponto ou caracteres especiais
+- Arrays com 6+ itens são aceitos (contrário à documentação)
+- Palavras como "email", "canal", "source" **funcionam** (o problema era o underscore)
+
+```python
+# ✅ VÁLIDO
+sub_ids = ["s1", "s2", "s3"]              # Letra + número
+sub_ids = ["promo1", "promo2"]            # Palavra + número
+sub_ids = ["email", "canal", "source"]    # Palavras simples
+sub_ids = ["subId", "testId"]             # CamelCase
+
+# ❌ INVÁLIDO
+sub_ids = ["sub_id", "test-1"]            # Underscore ou hífen
+sub_ids = ["utm_source", "test#1"]        # Caracteres especiais
+sub_ids = ["café", "promoção"]            # Acentos
 ```
 
 ### Exemplo 4: Relatório de Conversão

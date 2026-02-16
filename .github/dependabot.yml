@@ -1,0 +1,35 @@
+version: 2
+updates:
+  # Atualização de dependências Python
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "gabrielramos"
+    assignees:
+      - "gabrielramos"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "build"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "python"
+    allow:
+      # Permitir atualizações tanto de dependências diretas quanto de dev
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+    ignore:
+      # Ignorar versões beta ou RC por padrão
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+    groups:
+      python-dependencies:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "pytest"

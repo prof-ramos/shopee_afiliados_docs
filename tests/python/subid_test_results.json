@@ -1,0 +1,580 @@
+{
+  "timestamp": "2026-02-16T00:02:21.591095",
+  "total_tests": 49,
+  "success": 33,
+  "error": 16,
+  "exception": 0,
+  "results": [
+    {
+      "test_name": "Empty array",
+      "format": [],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:42.667678",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/1gDBztCI8V\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Simple letters with numbers",
+      "format": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:43.507631",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/9zsJvCl2Gn\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Single letters",
+      "format": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:44.349850",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/9zsJvCpVJZ\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Numbers as strings",
+      "format": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:45.106459",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/1gDBztL1S7\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Short words",
+      "format": [
+        "promo",
+        "sale",
+        "topo"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:45.920961",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/2B9SaoNaUv\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Words with numbers",
+      "format": [
+        "promo1",
+        "promo2",
+        "sale1"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:46.673141",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/8Kk5w94eGN\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Single word: email",
+      "format": [
+        "email"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:47.489000",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/7pnpLEAsnS\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Single word: canal",
+      "format": [
+        "canal"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:48.258733",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/7KrYkJHFr7\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Mixed format",
+      "format": [
+        "s1",
+        "email",
+        "2"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:49.095316",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/7KrYkJH7Kj\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Single 3-letter word",
+      "format": [
+        "abc"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:49.848915",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/5fjKlFRrUx\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Word ending with numbers",
+      "format": [
+        "teste123"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:50.684037",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/7fUP8vOZxX\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Alphanumeric mix",
+      "format": [
+        "xyz123abc"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:01:51.428606",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/gKeo3tlTW\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Underscore at start",
+      "format": [
+        "_test"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:01:52.239549",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Underscore in middle",
+      "format": [
+        "sub_id"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:01:52.997128",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Underscore with numbers",
+      "format": [
+        "sub_1",
+        "test_2"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:01:53.833443",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Hyphen",
+      "format": [
+        "test-1"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:01:54.670335",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Hyphen with numbers",
+      "format": [
+        "promo-2024"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:01:55.450248",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Dot separator",
+      "format": [
+        "test.1"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:01:56.249650",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Version with dot",
+      "format": [
+        "v2.0"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:01:57.023336",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "At symbol",
+      "format": [
+        "test@1"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:01:57.819079",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Hash symbol",
+      "format": [
+        "promo#2024"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:01:58.568269",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "UTM prefix (reserved)",
+      "format": [
+        "utm_source"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:01:59.293690",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "UTM prefix (reserved)",
+      "format": [
+        "utm_medium"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:02:00.106090",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "CamelCase",
+      "format": [
+        "subId"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:02:00.862324",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/1LaLbIUgeI\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "CamelCase mixed",
+      "format": [
+        "testId"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:02:01.936911",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/5fjKlGIj9Y\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Special characters",
+      "format": [
+        "test!",
+        "promo?"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:02:02.755506",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Space in name",
+      "format": [
+        "test space"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:02:03.496071",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Array with 6 items (limit is 5)",
+      "format": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6"
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:02:04.297244",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/6Kz1YUOv7F\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Very long string (100 chars)",
+      "format": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "expected": "unknown",
+      "timestamp": "2026-02-16T00:02:05.062740",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Long string (50 chars)",
+      "format": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "expected": "unknown",
+      "timestamp": "2026-02-16T00:02:05.923866",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/7VAywdTLYp\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Unicode with accent",
+      "format": [
+        "café"
+      ],
+      "expected": "unknown",
+      "timestamp": "2026-02-16T00:02:06.737244",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Unicode with special char",
+      "format": [
+        "promoção"
+      ],
+      "expected": "unknown",
+      "timestamp": "2026-02-16T00:02:07.488980",
+      "response": "{\"errors\": [{\"message\": \"error [11001]: Params Error : invalid sub id\", \"path\": [\"generateShortLink\"], \"extensions\": {\"code\": 11001, \"message\": \"Params Error : invalid sub id\"}}]}",
+      "result": "ERROR",
+      "error": "error [11001]: Params Error : invalid sub id"
+    },
+    {
+      "test_name": "Month name: January",
+      "format": [
+        "janeiro"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:02:08.317590",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/6VIRknfsu4\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Month name: February",
+      "format": [
+        "fevereiro"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:02:09.061130",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/2B9Saq0qkZ\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Pure numeric string",
+      "format": [
+        "123"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:02:09.882767",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/4VXNN7wR2W\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Zero as string",
+      "format": [
+        "0"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:02:10.647234",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/5q2kxZvgsj\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Long concatenated word",
+      "format": [
+        "test1test2test3test4test5"
+      ],
+      "expected": "unknown",
+      "timestamp": "2026-02-16T00:02:11.481879",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/AUoaW9iORQ\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "All uppercase",
+      "format": [
+        "UPPERCASE"
+      ],
+      "expected": "unknown",
+      "timestamp": "2026-02-16T00:02:12.224482",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/9Uw3KJm8D0\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Mixed case (no numbers)",
+      "format": [
+        "MixedCase"
+      ],
+      "expected": "unknown",
+      "timestamp": "2026-02-16T00:02:13.033801",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/9zsJvEocyd\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Empty string",
+      "format": [
+        ""
+      ],
+      "expected": "invalid",
+      "timestamp": "2026-02-16T00:02:13.793907",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/8Kk5wAzRQ0\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Many trailing numbers",
+      "format": [
+        "test123456"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:02:14.600438",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/6VIRkoAc7I\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Leading numbers",
+      "format": [
+        "123test"
+      ],
+      "expected": "unknown",
+      "timestamp": "2026-02-16T00:02:15.332778",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/8pgMX6689a\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Numbers in middle",
+      "format": [
+        "abc123xyz"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:02:16.214194",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/9AJCvi500G\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Alternating letters and numbers",
+      "format": [
+        "a1b2c3"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:02:16.957884",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/8pgMX6AWwA\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Lowercase only",
+      "format": [
+        "promo"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:02:17.745947",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/807FXZIEw3\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "Uppercase only",
+      "format": [
+        "PROMO"
+      ],
+      "expected": "unknown",
+      "timestamp": "2026-02-16T00:02:18.488119",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/LhoPTptY5\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "3 items",
+      "format": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:02:19.253588",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/7pnpLGNCnQ\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "4 items",
+      "format": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:02:20.031938",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/8fMwKnOZPr\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    },
+    {
+      "test_name": "5 items (max)",
+      "format": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "expected": "valid",
+      "timestamp": "2026-02-16T00:02:20.777558",
+      "response": "{\"data\": {\"generateShortLink\": {\"shortLink\": \"https://s.shopee.com.br/5L6UMffah9\"}}}",
+      "result": "SUCCESS",
+      "error": null
+    }
+  ]
+}

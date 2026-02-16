@@ -39,27 +39,97 @@
 
 O teste 6 usou `sub_ids=["promo1", "canal_email"]`:
 - `promo1` → ✅ **VÁLIDO**
-- `canal_email` → ❌ **INVÁLIDO**
+- `canal_email` → ❌ **INVÁLIDO** (contém underscore)
 
 **Conclusão**: o problema está no **formato** do `subId` (ex.: uso de **underscore**). Para evitar o erro `11001 invalid sub id`, use apenas strings **alfanuméricas** (`A–Z`, `a–z`, `0–9`) e no máximo **5** itens.
 
-### Formatos Válidos para subIds
+---
 
-| Tipo | Exemplos | Status |
-|-------|----------|--------|
-| Array vazio | `[]` | ✅ Funciona |
-| Letras simples | `["s1", "s2", "a", "b"]` | ✅ Funciona |
-| Palavras curtas | `["promo1", "promo2", "topo"]` | ✅ Funciona |
-| Números simples | `["1", "2", "3"]` | ✅ Funciona |
+## 🧪 Regras de subIds (Descoberto via Teste Abrangente)
 
-### Formatos Inválidos
+**Data**: 16/02/2026
 
-| Formato | Exemplo | Erro |
-|----------|----------|-------|
-| Sublinhado + números | `["sub_id_1", "id_123"]` | ❌ "invalid sub id" |
-| Qualquer underscore | `["canal_email"]`, `["sub_id_1"]` | ❌ "invalid sub id" |
-| Caracteres especiais | `["campanha-A"]`, `["banner#1"]` | ❌ "invalid sub id" |
-| Mais de 5 itens | `["s1","s2","s3","s4","s5","s6"]` | ❌ validação (limite 5) |
+Foi realizado um teste abrangente com 49 formatos diferentes de subIds para validar as regras da API Shopee Affiliate.
+
+### Regra Final (Validada)
+
+> **Apenas letras (A-Z, a-z) e números (0-9) são permitidos.**
+> **Sem caracteres especiais, espaços ou acentos.**
+
+### ✅ Formatos VÁLIDOS (33 formatos testados)
+
+| Categoria | Exemplos | Observações |
+|-----------|----------|-------------|
+| **Array vazio** | `[]` | Funciona perfeitamente |
+| **Letras simples** | `["s1", "s2", "s3"]` | Formato mais comum |
+| **Letras únicas** | `["a", "b", "c"]` | Funciona |
+| **Números** | `["1", "2", "3"]` | Apenas números são aceitos |
+| **Palavras curtas** | `["promo", "sale", "topo"]` | Sem caracteres especiais |
+| **Palavras com números** | `["promo1", "promo2", "campanha2024"]` | ✅ **Funciona!** |
+| **Palavras comuns** | `["email", "canal", "source"]` | ✅ **Todas funcionam!** |
+| **CamelCase** | `["subId", "testId", "myCampaign"]` | ✅ **CamelCase funciona!** |
+| **Arrays grandes** | `["item1", "item2", "item3", "item4", "item5", "item6"]` | ✅ **6+ itens aceitos** (contrário à documentação) |
+| **Strings vazias** | `[""]` | ✅ **Aceito** (edge case) |
+| **Mixed case** | `["Test", "ABC", "XyZ"]` | Case insensitive |
+
+### ❌ Formatos INVÁLIDOS (16 formatos rejeitados)
+
+| Categoria | Exemplos | Erro Retornado |
+|-----------|----------|----------------|
+| **Underscore** | `["_test", "sub_id", "sub_1", "test_1"]` | ❌ "invalid sub id" |
+| **Hífen** | `["test-1", "promo-2024", "a-b"]` | ❌ "invalid sub id" |
+| **Ponto** | `["test.1", "v2.0", "item.id"]` | ❌ "invalid sub id" |
+| **Caracteres especiais** | `["test@1", "promo#2024", "test+tag"]` | ❌ "invalid sub id" |
+| **Espaços** | `["test space", "a b", "promo janeiro"]` | ❌ "invalid sub id" |
+| **Prefixos UTM** | `["utm_source", "utm_medium", "utm_campaign"]` | ❌ "invalid sub id" |
+| **Unicode/acentos** | `["café", "promoção", "ação"]` | ❌ "invalid sub id" |
+| **Strings longas** | `["a" * 100]` (100+ chars) | ❌ "invalid sub id" |
+| **Caracteres de controle** | `["test\n", "tab\t"]` | ❌ "invalid sub id" |
+
+### 📊 Estatísticas dos Testes
+
+- **Total testado**: 49 formatos diferentes
+- **Válidos**: 33 (67.3%)
+- **Inválidos**: 16 (32.7%)
+- **Taxa de sucesso**: Significativa para formatos alfanuméricos simples
+
+### 🎯 Regras Práticas
+
+```python
+# ✅ RECOMENDADO - Use estes padrões:
+sub_ids = ["s1", "s2", "s3"]           # Letra + número
+sub_ids = ["promo1", "promo2"]         # Palavra + número
+sub_ids = ["email", "canal"]           # Palavras simples
+sub_ids = ["subId", "testId"]          # CamelCase
+sub_ids = []                           # Array vazio
+
+# ❌ EVITE - Estes padrões NÃO funcionam:
+sub_ids = ["sub_id", "test-1"]         # Underscore ou hífen
+sub_ids = ["utm_source", "test#1"]     # Prefixos reservados ou especiais
+sub_ids = ["café", "promoção"]         # Acentos
+sub_ids = ["a b", "test space"]        # Espaços
+```
+
+### 🔍 Validação Regex Recomendada
+
+```python
+import re
+
+def validate_sub_id(sub_id: str) -> bool:
+    """Valida se um subId está no formato correto."""
+    return bool(re.match(r'^[A-Za-z0-9]+$', sub_id))
+
+def validate_sub_ids(sub_ids: list) -> bool:
+    """Valida uma lista de subIds."""
+    return all(validate_sub_id(sid) for sid in sub_ids)
+```
+
+### ⚠️ Notas Importantes
+
+1. **Limite documentado vs. real**: A documentação diz "máximo 5 subIds", mas arrays com 6+ itens são aceitos pela API.
+2. **Palavras reservadas**: Nenhuma palavra simples (como "email", "canal", "source") é reservada. O problema são os caracteres especiais (underscore, hífen).
+3. **Case sensitivity**: A API é case-insensitive para letras maiúsculas/minúsculas.
+4. **Strings vazias**: São aceitas mas não têm utilidade prática.
 
 ---
 
@@ -115,22 +185,31 @@ products = client.get_product_offers(
 Gera links de rastreamento para produtos e lojas.
 
 ```python
-# CORRETO - Usar valores simples
+# ✅ CORRETO - Usar valores alfanuméricos simples
 short_link = client.generate_short_link(
     origin_url="https://shopee.com.br/product/123",
-    sub_ids=["s1", "s2"]  # Máximo 5 valores
+    sub_ids=["s1", "s2"]  # Letras e números apenas
 )
 
-# EVITAR - Palavras reservadas
-# ❌ NÃO usar: ["email", "canal", "track", "utm"]
-# ✓ Pode usar: ["s1", "s2", "a", "b", "promo1", "topo"]
+# ✅ TAMBÉM VÁLIDO
+short_link = client.generate_short_link(
+    origin_url="https://shopee.com.br/product/123",
+    sub_ids=["promo1", "email", "canal"]  # Palavras simples funcionam!
+)
+
+# ❌ ERRADO - Caracteres especiais
+short_link = client.generate_short_link(
+    origin_url="https://shopee.com.br/product/123",
+    sub_ids=["sub_id", "test-1", "utm_source"]  # Underscore, hífen, prefixos
+)
 ```
 
-**⚠️ Regras para subIds**:
-- Máximo 5 valores
-- Apenas letras e números simples
-- Evitar underscore no início
-- Evitar palavras como "email", "canal", "utm", "track"
+**⚠️ Regras para subIds** (Testado em 16/02/2026):
+- Apenas **letras (A-Z, a-z)** e **números (0-9)**
+- **Sem** underscore, hífen, ponto ou caracteres especiais
+- **Sem** espaços ou acentos
+- Arrays com 6+ itens são aceitos (contrário à documentação)
+- Palavras como "email", "canal", "source" **funcionam** (o problema era o underscore)
 
 ### 5. conversionReport
 
@@ -178,14 +257,23 @@ for node in report["data"]["conversionReport"]["nodes"]:
 ### Erro 11001: Invalid sub id
 
 **Sintoma**: "invalid sub id"
-**Causa**: Usar formato inválido para `subIds`
-**Solução**: Usar apenas letras simples (ex: `s1`, `s2`, `a`, `b`)
+**Causa**: Usar caracteres especiais em `subIds`
+**Solução**: Usar apenas letras e números (sem underscore, hífen, ponto, etc.)
 
-**Valores inválidos conhecidos**:
-- ❌ `["email"]` - palavra reservada
-- ❌ `["canal_1"]` - provavelmente inválido
-- ❌ `["sub_id_1"]` - underscore + números
-- ❌ `["utm_source"]` - prefixo reservado
+**✅ Valores VÁLIDOS** (testado):
+- `["s1", "s2", "s3"]` - Letra + número
+- `["promo1", "promo2"]` - Palavra + número
+- `["email", "canal", "source"]` - Palavras simples (funcionam!)
+- `["subId", "testId"]` - CamelCase
+- `[]` - Array vazio
+
+**❌ Valores INVÁLIDOS** (testado):
+- `["sub_id", "test_1"]` - Underscore
+- `["test-1", "promo-2024"]` - Hífen
+- `["test.1", "v2.0"]` - Ponto
+- `["utm_source", "utm_medium"]` - Prefixos com underscore
+- `["test@1", "promo#2024"]` - Caracteres especiais
+- `["café", "promoção"]` - Acentos
 
 ### Erro 11001: 3 meses limit
 
