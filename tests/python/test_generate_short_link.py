@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.join(ROOT, "examples", "python"))
 # Credenciais (via .env)
 load_dotenv()
 
-from shopee_affiliate_client import ShopeeAffiliateClient
+from shopee_affiliate_client import ShopeeAffiliateClient  # noqa: E402
 SHOPEE_APP_ID = os.getenv("SHOPEE_APP_ID")
 SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
 
@@ -43,7 +43,7 @@ def test_generate_short_link():
             return False
 
         short_link = result.get("data", {}).get("generateShortLink", {}).get("shortLink")
-        print(f"   OK: Short link gerado")
+        print("   OK: Short link gerado")
         print(f"   URL Original: {test_url}")
         print(f"   Short Link: {short_link}")
 
@@ -158,7 +158,7 @@ def test_generate_short_link():
 
         # Verificar se é uma URL válida do Shopee
         if short_link and ("shope.ee" in short_link or "shopee.com.br" in short_link or "shp.ee" in short_link):
-            print(f"   OK: Short link tem formato válido")
+            print("   OK: Short link tem formato válido")
             print(f"   Short Link: {short_link}")
         else:
             print(f"   AVISO: Short link pode ter formato inesperado: {short_link}")

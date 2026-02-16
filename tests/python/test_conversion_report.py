@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.join(ROOT, "examples", "python"))
 # Credenciais (via .env)
 load_dotenv()
 
-from shopee_affiliate_client import ShopeeAffiliateClient
+from shopee_affiliate_client import ShopeeAffiliateClient  # noqa: E402
 SHOPEE_APP_ID = os.getenv("SHOPEE_APP_ID")
 SHOPEE_APP_SECRET = os.getenv("SHOPEE_APP_SECRET")
 
@@ -37,7 +37,7 @@ def test_conversion_report():
     thirty_days_ago = now - (30 * 24 * 60 * 60)
 
     print(f"\nPeríodo de teste: {thirty_days_ago} a {now}")
-    print(f"(últimos 30 dias)")
+    print("(últimos 30 dias)")
 
     # Teste 1: Primeira página (sem scrollId)
     print("\n[1] Buscar primeira página (sem scrollId)...")
@@ -85,7 +85,7 @@ def test_conversion_report():
 
     # Teste 2: Paginação com scrollId (se houver próxima página)
     if nodes and page_info.get('hasNextPage') and scroll_id:
-        print(f"\n[2] Buscar próxima página com scrollId...")
+        print("\n[2] Buscar próxima página com scrollId...")
         try:
             # IMPORTANTE: scrollId expira em 30 segundos!
             result2 = client.get_conversion_report(
