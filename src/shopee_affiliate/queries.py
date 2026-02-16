@@ -39,9 +39,9 @@ def _render(template: str, mapping: dict[str, str]) -> str:
         Rendered string with placeholders substituted
     """
     return re.sub(
-        r'{{([a-zA-Z_][a-zA-Z0-9_]*)}}',
+        r"{{([a-zA-Z_][a-zA-Z0-9_]*)}}",
         lambda m: mapping.get(m.group(1), m.group(0)),
-        template
+        template,
     )
 
 
